@@ -122,7 +122,7 @@ def main():
         print("=" * 60)
         print()  # Spacing
 
-        choice = inq_select('Use the arrow keys and "Enter" to navigate the menus.', 'New Game', 'Load Game', 'Extras')
+        choice = inq_select('Use the arrow keys and "Enter" to navigate the menus.', 'New Game', 'Load Game', 'Play DLC', 'Extras', 'Exit')
 
         match choice:
             case 1:
@@ -131,7 +131,12 @@ def main():
             case 2:
                 load_game_main()
             case 3:
+                input("Playing DLC!")
+            case 4:
                 extras_main()
+            case 5:
+                print("Thanks for playing!")
+                break
 
 
 main()
