@@ -1,4 +1,9 @@
 from helper_funcs import inq_select
+import pygame
+
+pygame.init()
+pygame.mixer.init() 
+
 # Converts choosen dialogue file to a list of strings
 def read_dialogue_file(filepath):
     with open(filepath, 'r') as dialogue_file:
@@ -14,11 +19,24 @@ def read_dialogue(filepath):
 
     # Gets dialogue string and beginning dialogue path
     dialogue = read_dialogue_file(filepath)
+    audio = ''
     target_path = '1'
 
     for line in dialogue:
         path = line[:1]
+        spot = dialogue.index(line) 
 
+        if path == '-':
+            audio = read_dialogue_file(line[1:])
+            continue
+        
+        try:
+            if audio[spot][1:]:
+                voice_line = pygame.mixer.Sound(audio[spot][1:])
+                voice_line.play()
+        except:
+            pass
+        
         # IF dialogue on current path, print dialogue
         if path == target_path:
             if input(f'{line[1:]} (Enter to Continue)').lower() == 'skip':
@@ -42,5 +60,3 @@ def read_description(description, target):
     for line in description:
         if input(f'{line.format(tname=target.name)} (Enter to Continue)') == 'skip':
             break
-
-# read_dialogue('Dialogue/opening_cutscene.txt')

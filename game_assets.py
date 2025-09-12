@@ -1,8 +1,9 @@
 debug_mode = False
 
 class enemy:
-    def __init__(self, name, max_hp, max_nerves, min_nerves, attacks, abilities, effects, heals):
+    def __init__(self, name, enemy_class, max_hp, max_nerves, min_nerves, attacks, abilities, effects, heals):
         self.name = name
+        self.enemy_class = enemy_class
 
         self.max_hp = max_hp
         self.hp = max_hp
@@ -17,7 +18,7 @@ class enemy:
         self.heals = heals
 
     def __str__(self):
-        stats = f'-~-~-~-~-{self.name}-~-~-~-~-\nHP: {self.hp}/{self.max_hp}\nNerves: {self.nerves}/{self.max_nerves}\nMinimum Nerves: {self.min_nerves}\n'
+        stats = f'-~-~-~-~-{self.name}-~-~-~-~-\nClass: {self.enemy_class} \nHP: {self.hp}/{self.max_hp}\nNerves: {self.nerves}/{self.max_nerves}\nMinimum Nerves: {self.min_nerves}\n'
 
 
         if 2 in self.effects:
@@ -139,7 +140,7 @@ class encounter:
         self.closing = closing
         
 
-all_enemies = enemy('All enemies', 0, 0, 0, [], [], [], [])
+all_enemies = enemy('All enemies', 'All Enemies', 0, 0, 0, [], [], [], [])
 all_allies = ally('All enemies', 0, 0, 0, [], [], [], [])
 
 # ------------------------------------------------- Testing Assets Start ------------------------------------------------
@@ -164,7 +165,7 @@ mult_self_item = item(name='Item 4',item_description='An item made for testing!'
 test_inventory = [sin_off_item, mult_off_item, sin_self_item, mult_self_item]
 test_attacks = [test_ally_attack, falcon_punch, resign]
 
-test_enemy = enemy(name='Test Enemy',
+test_enemy = enemy(name='Test Enemy', enemy_class='Tester',
                    max_hp=50, max_nerves=100, min_nerves=10,
                    attacks=[test_enemy_attack],abilities=[],effects=[],heals=[])
 
@@ -219,7 +220,7 @@ yell = attack('yell', 'Unbearable Yell', '', 10, 5, True, False,
               ['aaaaaaa?'],
               ['Um...', 'uh...', "I don't have anywhere near enough energy to yell."], [])
 
-viyh = enemy(name='The Voice In Your Head', 
+viyh = enemy(name='The Voice In Your Head', enemy_class='All-Rounder',
              max_hp=50, max_nerves=100, min_nerves=10, 
              attacks=[pessimism, yell], abilities=[], effects=[], heals=[pep_talk_boss])
 
@@ -249,7 +250,7 @@ got_milk_enemy = attack('single_heal', 'Got Milk?', 'Milk makes your bones stron
                         'You reconcile him as he despairs', '"Raaaah. Thank you"', "Now that he's feeling better, you hug and then continue the fight"], [])
 
 
-skellybones_boss = enemy('Mr. Skellybones', 100, 100, 10,
+skellybones_boss = enemy('Mr. Skellybones', 'Nerve Damager', 100, 100, 10,
                     [bone_blow_boss, truth_enemy], [], [], [got_milk_enemy])
 
 skellybones_fight = encounter([skellybones_boss], 'Dialogue/skellybones_intro.txt', 'Dialogue/skellybones_outro.txt')
@@ -285,8 +286,8 @@ present_pepper = attack('present', 'Present', '', 0, 20, True, False,
                        ['Using her elf skills,', 'the elf quickly builds one of those really mesmerizing fans that light up.', 'You know the one.', 'Anyway she turns it on and it mesmerizes {tname}.', '{tname} eventually regains control and is only a little panicked to see how much happened while he was in a trance.'],
                        ['Using her elf skills,', 'the elf quickly builds a sticky hand and flings it at {tname}.'], [])
 
-santa = enemy('Santa Claus', 100, 120, 10, [blast, intimidation], [], [], [])
-agent_elf = enemy('Special Agent Elf', 80, 120, 10, [beam_enemy, present_pepper], [], [], [])
+santa = enemy('Santa Claus', 'AOE Damager', 100, 120, 10, [blast, intimidation], [], [], [])
+agent_elf = enemy('Special Agent Elf', 'Focused Damager', 80, 120, 10, [beam_enemy, present_pepper], [], [], [])
 
 santa_fight = encounter([santa, agent_elf], 'Dialogue/north_pole/santa_intro.txt', 'Dialogue/north_pole/santa_outro.txt')
 
@@ -309,7 +310,7 @@ hologram = attack('hologram', 'Hologram', '', 0, 20, True, False,
                   ['Zeep Vorp tries to activate several holograms of himself to confuse {tname}, but he trips and can only activate one because he broke the other 43.'],
                   ['Zeep Vorp tries to activate several holograms of himself to confuse {tname}, but it seems like he ran out of his free trial.', 'He spends a couple minutes trying to pay for Hologram+ and eventually he figures it out.', 'Sigh...', 'classic Zeep Vorp.'], [])
 
-zeep_vorp_enemy = enemy('Zeep Vorp', 120, 130, 30, [super_charge], [hologram], [], [replication])
+zeep_vorp_enemy = enemy('Zeep Vorp', 'All-Rounder', 120, 130, 30, [super_charge], [hologram], [], [replication])
 
 zeep_vorp_fight = encounter([zeep_vorp_enemy], 'Dialogue/white_house/zeep_vorp_intro.txt', "Dialogue/white_house/zeep_vorp_outro.txt")
 
@@ -337,9 +338,9 @@ trick = attack('nudge', 'Trick', '', 15, 0, True, False,
                ['"Brains... trick or treat!"', ''],
                ['"Brains... trick or treat!"', 'You shake your head in disapproval, rejecting the zombie.', 'The zombie walks away defeated.', '"Rejected me just like Jessica..." the zombie says under its breath.'], [])
 
-ghost = enemy('Very Spooky Ghost', 55, 100, 30, [], [], [], [moral_support])
-zombie_one = enemy('David', 50, 100, 10, [trick, scare], [], [], [])
-zombie_two = enemy('Very Spooky Zombie', 40, 100, 10, [trick, scare], [], [], [])
+ghost = enemy('Very Spooky Ghost', 'General Healer', 55, 100, 30, [], [], [], [moral_support])
+zombie_one = enemy('David', 'General Damager', 50, 100, 10, [trick, scare], [], [], [])
+zombie_two = enemy('Very Spooky Zombie', 'General Damager', 40, 100, 10, [trick, scare], [], [], [])
 
 spooky_monsters_fight = encounter([zombie_one, ghost], 'Dialogue/encounter_intro.txt', 'Dialogue/encounter_outro.txt')
 
@@ -361,9 +362,9 @@ snowball = attack('snowball', 'Snow Ball', '', 25, 10, True, False,
                   ['The elf makes a kind of spherical snowball using magically summoned snow', 'It tosses it but it barely hits you.'],
                   ['Like a complete IDIOT,', 'the elf makes a poorly formed snowball and COMPLETELY misses like a LOSER!'], [])
 
-elf_one = enemy('Spec. Ops. Elf 1', 50, 100, 30, [present_enemy, snowball], [], [], [])
-elf_two = enemy('Spec. Ops. Elf 2', 50, 100, 30, [present_enemy, snowball], [], [], [])
-reindeer = enemy('Spec. Ops. Reindeer', 70, 100, 20, [], [shine], [], [])
+elf_one = enemy('Spec. Ops. Elf 1', 'General Damager', 50, 100, 30, [present_enemy, snowball], [], [], [])
+elf_two = enemy('Spec. Ops. Elf 2', 'General Damager', 50, 100, 30, [present_enemy, snowball], [], [], [])
+reindeer = enemy('Spec. Ops. Reindeer', 'Effect Support', 70, 100, 20, [], [shine], [], [])
 
 spec_ops_fight = encounter([elf_one, elf_two, reindeer], 'Dialogue/north_pole/spec_ops_intro.txt', 'Dialogue/north_pole/spec_ops_outro.txt')
 
@@ -478,3 +479,22 @@ pepper = ally('Pepper', 50, 100, 25, [beam_ally, present_ally], [], [], [])
     #'YOU LOST IDIOT!!!!!!!!'
 
 everyone = [test_enemy, viyh, skellybones_boss, ghost, zombie_one, zombie_two, santa, agent_elf, elf_one, elf_two, reindeer, zeep_vorp_enemy, test_ally, player, skellybones_ally, zeep_vorp_ally, pepper]
+
+# ===========================================================================================================
+# =================================================== DLC ===================================================
+# ===========================================================================================================
+
+# ================================================= Bosses =================================================
+
+gun = attack("gun", "Gun", "", 25, 0, True, False, 
+             ["The robber uses his gun and misses!", "But then...", "The bullet ricochets off of the cash register and flies out of the window,", "hitting a nearby car in the tire,", 'causing the car to go wildly off course', 'and crash into the gas station,', 'hitting you.', 'The driver gets your insurance information and leaves.'],
+             ['The robber uses his gun and hits you!'],
+             ["The robber tries to use his gun but it jams.", "He throws the magazine at you instead."],
+             ['The robber tries to use his gun', 'but due to the pressure of battle, he forgets how to use the gun.', 'He watches an online video tutorial but the thick indian accent makes it impossible to understand.'], [])
+
+tip = attack('tip', "Tip", '', -10, -10, False, False,
+             ["The robber's mentor whispers to the robber:", 'MENTOR: "If you shoot them, they will die."'],
+             ["The robber's mentor whispers to the robber:", 'MENTOR: "It would be kinda lame if you lost this fight."'])
+
+robber = enemy("Robber", 'General Damager', 80, 100, 0, [gun], [], [], [])
+mentor = enemy("Mentor", 'General Healer', 40, 100, 20, [], [], [], [])

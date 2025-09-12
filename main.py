@@ -111,6 +111,39 @@ def load_game_main():
 
             explore(main_locations[3], 3)
 
+def start_dlc():
+    tutorial_finished = False
+
+    while not tutorial_finished:
+
+        tutorial_finished, empty_list = battle([player], [robber, mentor], 'dlc_dialogue/opening/intro1.txt', 'Dialogue/opening/viyh_outro.txt', [])
+
+
+def dlc_main():
+    game_title = "Quest For The Country!"
+    sub_title = "Hunt for Zeep Vorp"
+
+    while True:
+        # Display the title screen header
+        print("\n" + "=" * 60)
+        print(f"{game_title.center(60)}")
+        print(f"{sub_title.center(60)}")
+        print("A DLC by Darius".center(60))
+        print("=" * 60)
+        print()  # Spacing
+
+        choice = inq_select('Use the arrow keys and "Enter" to navigate the menus.', 'Play DLC', 'Load DLC', 'Exit')
+
+        match choice:
+            case 1:
+                if inq_select("Starting a new game will completely wipe your save file. Are you sure?", 'No', 'Yes') == 2:
+                    start_dlc()
+            case 2:
+                pass
+            case 3:
+                player.name = "Unpaid Intern"
+                break
+
 def main():
     game_title = "Quest For The Country!"
 
@@ -131,7 +164,9 @@ def main():
             case 2:
                 load_game_main()
             case 3:
-                input("Playing DLC!")
+                if inq_select("This DLC contains spoilers for the main game. It is advised to only play if you have beaten the base game. Do you want to continue?", 'No', 'Yes') == 2:
+                    player.name = "Paid Intern"
+                    dlc_main()
             case 4:
                 extras_main()
             case 5:

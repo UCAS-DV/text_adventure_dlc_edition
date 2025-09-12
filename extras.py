@@ -4,7 +4,7 @@ from inspect_character import get_char_stats
 from game_assets import everyone
 def extras_main():
     while True:
-        choice = inq_select("view:", "Unused Inspect Characters", "Exit to main menu")
+        choice = inq_select("View:", "Unused Inspect Characters", "Exit")
 
         match choice:
             case 1:
