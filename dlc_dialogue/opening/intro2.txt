@@ -1,20 +1,62 @@
 -dlc_dialogue\opening\audio\intro2_audio.txt
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
+1MENTOR: "You're screwed."
+1The mentor runs away and jumps through a window.
+1ROBBER: "Uh..."
+1ROBBER: "Um..."
+1ROBBER: "Yeah, I got nothing."
+1The robber drops his gun and raises his hand in the air.
+1You shrug and grab a cold sliced sandwich without condiments and bring it to the counter.
+1CASHIER: "That'll be $2.73."
+1You pat your pockets and luckily you have 273 pennies in there.
+1You grab the pennies and place them on the counter.
+1The cashier sighs.
+1You walk out with your sandwich,
+1Then eat it.
+1All things considered,
+1it was mediocre.
+1But at least it was breakfast.
+1You walk 4 hours to the White House and then enter the briefing room.
+1In the breifing room is the President, 
+1Vice President Palmer, 
+1Secretary of State, 
+1Secretary of War, 
+1Director of the Central-er Intelligence Agency
+1and a pizze delivery man named Tony.
+1PALMER: "Ah, welcome."
+1PALMER: "Congrats on getting here in only 12 hours."
+1PALMER: "That has to be a new record."
+1You do a heal click in joy.
+1PALMER: "Anyway, Director Jameson and his agency has found some information that you want to see."
+1She turns on the large screen in front of a wall.
+1On the screen you see security camera footage from a New Rome bank.
+1A mysterious, short man walks in with a fedora and trench coat that poorly fits him.
+1The man pulls out a laser pistol and robs the bank.
+1He looks up at the camera.
+1It's not just some robber.
+1It's Zeep Vorp.
+1Zeep Vorp fires at the camera, ending the footage.
+1PALMER: "We want you to arrest him and bring him to justice."
+1PALMER: "To aid you, we have brought some old friends."
+1Behind you, you hear footsteps behind you.
+1PERSON BEHIND YOU: "Hey!"
+1You turn around to see Mr. Skellybones and Pepper.
+1PALMER: "Do you feel up to it?"
+`Nod`Shake Head
+1Palmer smirks.
+1PALMER: "I had a feeling you were."
+1Soon you find yourself on a train straight to New Rome.
+1And so begins the second greatest Quest for the Country this nation has ever seen!
+1Probably...
+2And so begins the second greatest Quest-
+2Wait what?
+2Palmer looks surprised and can you blame her.
+2Come on, you literally saved the country.
+2This surely can't be any harder.
+2Palmer clears her throat.
+2PALMER: "Well... we had a plan if you said that."
+2She plays security camera footage of a young you shoplifting.
+2PALMER: "If you help us, you will recieve a pardon for this crime."
+2Your eyes widen in shock.
+2Soon you find yourself on a train straight to New Rome.
+2And so begins the second greatest Quest for the Country this nation has ever seen!
+2Probably...

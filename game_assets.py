@@ -490,11 +490,19 @@ gun = attack("gun", "Gun", "", 25, 0, True, False,
              ["The robber uses his gun and misses!", "But then...", "The bullet ricochets off of the cash register and flies out of the window,", "hitting a nearby car in the tire,", 'causing the car to go wildly off course', 'and crash into the gas station,', 'hitting you.', 'The driver gets your insurance information and leaves.'],
              ['The robber uses his gun and hits you!'],
              ["The robber tries to use his gun but it jams.", "He throws the magazine at you instead."],
-             ['The robber tries to use his gun', 'but due to the pressure of battle, he forgets how to use the gun.', 'He watches an online video tutorial but the thick indian accent makes it impossible to understand.'], [])
+             ['The robber tries to use his gun', 'but due to the pressure of battle, he forgets how to use it.', 'He watches an online video tutorial but the thick accent makes it impossible to understand.'], [])
+
+threat = attack("threat", "Threat", "", 0, 15, True, False,
+                ["The robber points his gun at your favorite brand of chocolate.", 'ROBBER: "Um... step any closer and the chocolate gets it!"', 'You panic.'],
+                ["The robber points his gun at you.", 'ROBBER: "St-stand back or I\'ll shoot!"'],
+                ["The robber points his gun at you.", "He tries to fire a warning shot but he's out of ammo"],
+                ["The robbber points his gun at you and drops it.", "Oops."], [])
 
 tip = attack('tip', "Tip", '', -10, -10, False, False,
+             ["The robber's mentor whispers to the robber:", 'MENTOR: "It would be kinda lame if you lost this fight."'],
              ["The robber's mentor whispers to the robber:", 'MENTOR: "If you shoot them, they will die."'],
-             ["The robber's mentor whispers to the robber:", 'MENTOR: "It would be kinda lame if you lost this fight."'])
+             ["The robber's mentor whispers to the robber:", 'MENTOR: "Uh... um... honestly I do not know."', 'MENTOR: "Try to win?"'],
+             ["The robber's mentor whispers to the robber.", 'But the whispering is so quiet that not even the robber understands what is said.'], [])
 
-robber = enemy("Robber", 'General Damager', 80, 100, 0, [gun], [], [], [])
-mentor = enemy("Mentor", 'General Healer', 40, 100, 20, [], [], [], [])
+robber = enemy("Robber", 'General Damager', 80, 100, 0, [gun, threat], [], [], [])
+mentor = enemy("Mentor", 'General Healer', 40, 100, 20, [], [], [], [tip])

@@ -116,7 +116,7 @@ def start_dlc():
 
     while not tutorial_finished:
 
-        tutorial_finished, empty_list = battle([player], [robber, mentor], 'dlc_dialogue/opening/intro1.txt', 'Dialogue/opening/viyh_outro.txt', [])
+        tutorial_finished, empty_list = battle([player], [robber, mentor], 'dlc_dialogue/opening/intro1.txt', 'dlc_dialogue/opening/intro2.txt', [])
 
 
 def dlc_main():
@@ -142,6 +142,7 @@ def dlc_main():
                 pass
             case 3:
                 player.name = "Unpaid Intern"
+                print("\033c")
                 break
 
 def main():
@@ -166,6 +167,7 @@ def main():
             case 3:
                 if inq_select("This DLC contains spoilers for the main game. It is advised to only play if you have beaten the base game. Do you want to continue?", 'No', 'Yes') == 2:
                     player.name = "Paid Intern"
+                    print("\033c")
                     dlc_main()
             case 4:
                 extras_main()

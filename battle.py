@@ -16,9 +16,9 @@ def attack_them(att, dealer, targets, nerves):
                 effects.apply(att.ability[i],targets[j])
 
     # Rolls random multipler based off of nerves
-    def roll_nerves(nerves, attack, target):
+    def roll_nerves(nerves, max_nerves ,attack, target):
 
-        roll = random.randint(1,100)
+        roll = random.randint(1,max_nerves)
         if attack != game_assets.pep_talk:
             if roll < nerves * 0.1:
                 read_description(attack.super_success + [f'{attack.name} was super successful!'], target)
@@ -36,13 +36,13 @@ def attack_them(att, dealer, targets, nerves):
             read_description(attack.success + [f'{attack.name} was successful!'], target)
             return 1
 
-
+    print("\033c")
     input(f'{dealer.name} uses {att.name}!')
 
     dmg = att.hp
     discomfort = att.nerves
 
-    nerve_multiplier = roll_nerves(nerves, att, targets[0])
+    nerve_multiplier = roll_nerves(nerves, dealer.max_nerves, att, targets[0])
 
     # Multiply damage and nerve damage by nerve multiplier
     dmg = dmg * nerve_multiplier
@@ -107,8 +107,6 @@ def attack_them(att, dealer, targets, nerves):
 
         # Apply the effect
         #effects.apply(att.ability, target)
-        input("")
-        print("\033c")
 
 # Formats items so it can be used in UI
 def format(unformatted_list):
@@ -138,7 +136,8 @@ def select_random(selection_list):
 # Applies item effects
 def use_item(item, allies, enemies):
 
-    input(f'Unpaid Intern uses {item.name}!')
+    print("\033c")
+    input(f'{game_assets.player.name} uses {item.name}!')
 
     while True:
         if item.offensive:
@@ -156,7 +155,6 @@ def use_item(item, allies, enemies):
                         enemy.nerves += item.nerves
 
                 input(f'All enemies lost {-item.hp} health.\nAll enemies lost {-item.nerves} nerves.')
-                print("\033c")
                 
                 break
             else:
@@ -184,7 +182,7 @@ def use_item(item, allies, enemies):
                 target = enemy_selected
 
                 input(f'{enemy_selected.name} lost {-item.hp} health.\n{enemy_selected.name} lost {-item.nerves} nerves.')
-                print("\033c")
+                
                 break
         else:
             # IF item affects multiple allies
@@ -201,7 +199,6 @@ def use_item(item, allies, enemies):
                 read_description(item.a_desc, target)
 
                 input(f'All allies gained {item.hp} health.\nAll enemies gained {item.nerves} nerves.')
-                print("\033c")
 
                 break
             else:
@@ -225,7 +222,6 @@ def use_item(item, allies, enemies):
                 read_description(item.a_desc, target)
 
                 input(f'{ally_selected.name} gained {item.hp} health.\n{ally_selected.name} gained {item.nerves} nerves.')
-                print("\033c")
 
                 break
     return allies, enemies
