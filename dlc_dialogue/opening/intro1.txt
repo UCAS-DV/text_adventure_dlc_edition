@@ -25,7 +25,7 @@
 1PALMER: "We need you at the White House."
 1PALMER: "Now."
 1PALMER: "I'll explain everything when you get here."
-1You shrug and casually stroll to the White House.
+1You grab your $20 gift card for good luck, shrug and casually stroll to the White House.
 1After 4 hours, you arrive.
 1You approach the entrance.
 1But wait!
@@ -48,4 +48,4 @@
 1GUY 1: "I have a gun."
 1Damn it! A robbery!
 1This'll make it impossible to buy breakfast!
-1Come on, let's handle
+1Come on, let's handle this

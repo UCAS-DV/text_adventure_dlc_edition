@@ -1,15 +1,14 @@
 -dlc_dialogue\opening\audio\intro2_audio.txt
-1MENTOR: "You're screwed."
+1MENTOR: "Welp. You're screwed."
 1The mentor runs away and jumps through a window.
 1ROBBER: "Uh..."
 1ROBBER: "Um..."
-1ROBBER: "Yeah, I got nothing."
 1The robber drops his gun and raises his hand in the air.
 1You shrug and grab a cold sliced sandwich without condiments and bring it to the counter.
 1CASHIER: "That'll be $2.73."
 1You pat your pockets and luckily you have 273 pennies in there.
 1You grab the pennies and place them on the counter.
-1The cashier sighs.
+1CASHIER: "What did I do to deserve this?"
 1You walk out with your sandwich,
 1Then eat it.
 1All things considered,
@@ -28,9 +27,11 @@
 1You do a heal click in joy.
 1PALMER: "Anyway, Director Jameson and his agency has found some information that you want to see."
 1She turns on the large screen in front of a wall.
-1On the screen you see security camera footage from a New Rome bank.
+1On the screen you see security camera footage from a bank.
 1A mysterious, short man walks in with a fedora and trench coat that poorly fits him.
-1The man pulls out a laser pistol and robs the bank.
+1The man pulls out a laser pistol.
+1"Veedal zoop zoodal beep!"
+1Everyone gets on the ground.
 1He looks up at the camera.
 1It's not just some robber.
 1It's Zeep Vorp.
@@ -44,7 +45,6 @@
 `Nod`Shake Head
 1Palmer smirks.
 1PALMER: "I had a feeling you were."
-1Soon you find yourself on a train straight to New Rome.
 1And so begins the second greatest Quest for the Country this nation has ever seen!
 1Probably...
 2And so begins the second greatest Quest-
@@ -55,8 +55,7 @@
 2Palmer clears her throat.
 2PALMER: "Well... we had a plan if you said that."
 2She plays security camera footage of a young you shoplifting.
-2PALMER: "If you help us, you will recieve a pardon for this crime."
+2PALMER: "If you help us, you will receive a pardon for this horrible crime."
 2Your eyes widen in shock.
-2Soon you find yourself on a train straight to New Rome.
 2And so begins the second greatest Quest for the Country this nation has ever seen!
 2Probably...

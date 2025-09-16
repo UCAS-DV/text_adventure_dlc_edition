@@ -21,7 +21,11 @@ inventory_file = 'save_inventory.txt'
 player_data = {
     "location": 1,
     "allies": [player],
-    "inventory": []
+    "inventory": [],
+    'durability': 0,
+    'bravery': 0,
+    'strength': 0,
+    'recovery': 0
 }
 
 def save_game(data):

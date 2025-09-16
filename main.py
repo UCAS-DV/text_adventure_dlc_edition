@@ -5,6 +5,8 @@ from game_assets import *
 from save_load import *
 from explore import *
 from extras import extras_main
+from level_up import level_up
+from menu import *
 
 # Runs game by going through game sequence
 def start_game():
@@ -20,7 +22,6 @@ def start_game():
     tutorial_finished = False
 
     while not tutorial_finished:
-
         tutorial_finished, empty_list = battle(player_data['allies'], [viyh], 'Dialogue/opening/tutorial1.txt', 'Dialogue/opening/viyh_outro.txt', player_data['inventory'])
 
     save_game({
@@ -117,6 +118,14 @@ def start_dlc():
     while not tutorial_finished:
 
         tutorial_finished, empty_list = battle([player], [robber, mentor], 'dlc_dialogue/opening/intro1.txt', 'dlc_dialogue/opening/intro2.txt', [])
+
+    read_dialogue('dlc_dialogue\opening\intro3.txt')
+
+    level_up(party, inq_select("What do you want to level up?", "Durability", "Bravery", "Strength", "Recovery"))
+
+    menu(dlc_locations[0], 0)
+
+    
 
 
 def dlc_main():

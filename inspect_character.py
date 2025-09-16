@@ -64,7 +64,7 @@ def get_char_stats(char_name):
             f"{expand_settings["abilities"].title()} ability descriptions",
             f"{expand_settings["heals"].title()} healing descriptions",
             f"{expand_settings["items"].title()} item descriptions",
-            "No thanks (Exit character inspect menu)")
+            "Exit character inspect menu")
             
             if selection == 1: #logic behind choosing weather you want to expand the information on each of your items
                 if char_name.attacks:
@@ -118,7 +118,7 @@ def get_char_stats(char_name):
             f"{expand_settings["abilities"].title()} ability descriptions",
             f"{expand_settings["heals"].title()} healing descriptions",
             #f"{expand_settings["items"].title()} item descriptions",
-            "No thanks (Exit character inspect menu)")
+            "Exit character inspect menu")
 
             if selection == 1: #logic behind choosing weather you want to expand the information on each of your items
                 if char_name.attacks:
@@ -158,4 +158,4 @@ def get_char_stats(char_name):
 
     
 
-#get_char_stats(player)
+# get_char_stats(player)

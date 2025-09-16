@@ -1,0 +1,26 @@
+-dlc_dialogue\north_dakota\audio\nd_dea_audio.txt
+1After some wandering, you enter a grand castle but inside,
+1it looks like a typical government office building.
+1The receptionist is looking down at a crystal ball, talking to a friend being projected in the ball.
+1He looks at your party, waves hi, and then goes back to her conversation.
+1He then takes a double take and looks shocked.
+1RECEPTIONIST: "One moment Jessica. I'll be back. Something strange is happening."
+1He hangs up and turns to you and your party.
+1RECEPTIONIST: "Hello! How did you get here?"
+1PEPPER: "We're here on the Vice President's orders. Do you have any information on Zeep Vorp?"
+1RECEPTIONIST: "Oh! That makes so much more sense."
+1RECEPTIONIST: "I thought I was going to have to incinerate you for trespassing!"
+1He raises his wand to show it off.
+1RECEPTIONIST: "Unfortunately, I am just a receptionist so I don't know anything about a 'Zeep Vorp'" 
+1RECEPTIONIST: "But I do have access to Secretary Wingstop."
+1The receptionist waves his hand around his crystal ball and then knocks on it in a specific rhythm.
+1RECEPTIONIST: "Secretary, some people were sent here by the Vice President. They are asking about a Zeep Vorp."
+1There is a silence.
+1WINGSTOP: "Zeep Vorp?"
+1RECEPTIONIST: "Yes."
+1WINGSTOP: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!"
+1The ball suddenly goes dark and the receptionist shrugs.
+1RECEPTIONIST: "Sorry I don't have anything. I can give you this."
+1He reaches into his desk and pulls out a metal ingot.
+1RECEPTIONIST: "Northdakotium. We give it to all visitors."
+1You bow in thanks and then leave.

@@ -135,7 +135,7 @@ def local_encounter(encounter):
 def explore(location, index):
     # Go through all main locations
 
-    print(f"\n== Entering {location['name']} ==")
+    input(f"\n== Entering {location['name']} ==")
 
     read_dialogue(location['intro'])
 

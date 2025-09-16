@@ -1,0 +1,9 @@
+-dlc_dialogue\opening\intro3.txt
+1But wait!
+1You should probably level up first.
+1You have 4 things about your party that you can level up:
+1durability, which increases your health as it increases,
+1bravery, which increases your maximum and minimum nerves as it increase,
+1strength, which increases the damage of your attacks
+1or recovery, which increases the effectiveness of your healing abilities (Pep Talk, for example)
+1Choose wisely.

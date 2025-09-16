@@ -138,7 +138,6 @@ class encounter:
         self.enemies = enemies
         self.opening = opening
         self.closing = closing
-        
 
 all_enemies = enemy('All enemies', 'All Enemies', 0, 0, 0, [], [], [], [])
 all_allies = ally('All enemies', 0, 0, 0, [], [], [], [])
@@ -173,7 +172,7 @@ test_ally = ally(name='Test Ally',
               max_hp=100, max_nerves=100, min_nerves=10, 
               attacks=[test_ally_attack],abilities=[],effects=[],heals=[])
 
-# ------------------------------------------------- Items ------------------------------------------------
+# ================================================= Items =================================================
 present_item = item(name='Present',item_description='Tragically, Jackson Spook never got his present in 2017. So sad.',hp=-5, nerves=-30,
                  action_description=['You pull out the present you got from earlier.', 'You open it to see a gaming console packed with a horror game.', 'You open it and hook it up to a nearby TV.',
                                      'The horror game is kinda mediocre but your gameplay is so horrendous that it stresses everyone out.', 'Seriously, I have never seen someone suck at a video game so much.',
@@ -484,8 +483,18 @@ everyone = [test_enemy, viyh, skellybones_boss, ghost, zombie_one, zombie_two, s
 # =================================================== DLC ===================================================
 # ===========================================================================================================
 
+# ================================================= Items =================================================
+northdakotium = item("Northdakotium", 'An ingot of Northdakotium that you have no idea what to do with.', 50, 0, False, True, [], 
+                     ['You pull out your ingot of North Dakotium you had in your backpocket.', "You try to eat it for some reason but obviously that doesn't work.", "It's a slab of metal.",
+                      "I don't know what you expected.", 'UNKNOWN: "Yo."', "Wait is that...", 'the ingot talking?!', 'PEPPER: "How do we use you, ingot?"', 'INGOT: "What do you mean use me?"',
+                      'PEPPER: "I mean use you! Now give us something or else I\'m throwing you into a furnace."', 'INGOT: "Whoa, whoa, whoa! Let\'s not get violent here!"', 
+                      'INGOT: "Look I don\'t know!"', 'You take the ingot and rub it sensually... for some reason.', 'Pepper and Mr. Skellybones avert their eyes.', 'But then the ingot starts glowing.',
+                      'INGOT: "Whoa! What\'s happening to me-"', 'The ingot is converted into energy that heals you.'])
+
+
 # ================================================= Bosses =================================================
 
+# ------------------------------------------------- Tutorial Fight -------------------------------------------------
 gun = attack("gun", "Gun", "", 25, 0, True, False, 
              ["The robber uses his gun and misses!", "But then...", "The bullet ricochets off of the cash register and flies out of the window,", "hitting a nearby car in the tire,", 'causing the car to go wildly off course', 'and crash into the gas station,', 'hitting you.', 'The driver gets your insurance information and leaves.'],
              ['The robber uses his gun and hits you!'],
@@ -506,3 +515,15 @@ tip = attack('tip', "Tip", '', -10, -10, False, False,
 
 robber = enemy("Robber", 'General Damager', 80, 100, 0, [gun, threat], [], [], [])
 mentor = enemy("Mentor", 'General Healer', 40, 100, 20, [], [], [], [tip])
+
+# ================================================= Encounters =================================================
+
+# ------------------------------------------------- North Dakota Encounter -------------------------------------------------
+
+
+
+# ================================================= Allies =================================================
+
+# ------- Party -------
+party = [player, skellybones_ally, pepper]
+benched_allies = []

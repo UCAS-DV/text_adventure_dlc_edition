@@ -1,0 +1,26 @@
+-
+1
+1
+1
+1
+1
+1dlc_audio\nd_dea\One-moment.wav
+1
+1dlc_audio\nd_dea\Hello!.wav
+1
+1dlc_audio\nd_dea\Sense.wav
+1dlc_audio\nd_dea\Incinerate.wav
+1
+1dlc_audio\nd_dea\Unfortunately.wav
+1dlc_audio\nd_dea\But... wingstop.wav
+1
+1dlc_audio\nd_dea\Secretary.wav
+1
+1
+1dlc_audio\nd_dea\Yep.wav
+1
+1
+1dlc_audio\nd_dea\I can give you this.wav
+1
+1dlc_audio\nd_dea\northdakotium.wav
+1

@@ -6,6 +6,7 @@ import random
 import ent_ai
 import os
 import effects
+from save_load import *
 
 # Attacks target   
 def attack_them(att, dealer, targets, nerves):
