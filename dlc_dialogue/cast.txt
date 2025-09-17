@@ -7,6 +7,16 @@ Allastor:
 
 Darius:
     Robber/Guy 1
+    Conductor
 
 Franco:
     Receptionist
+
+Cecily:
+    Pepper
+
+Maddie:
+    Vice President Palmer
+
+Michael:
+    Prince of North Dakota

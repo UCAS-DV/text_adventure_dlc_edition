@@ -1,0 +1,20 @@
+-dlc_dialogue/north_dakota/audio/palace_audio.txt
+1After hours of wandering, the sun sets and the moon rises.
+1PEPPER: "What now?"
+1MR. SKELLYBONES: "Raaaaaah, what shall we do, honored one."
+1You shrug.
+1PEPPER: "Every second we spend is another second that
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
