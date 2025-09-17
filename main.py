@@ -119,6 +119,8 @@ def start_dlc():
 
         tutorial_finished, empty_list = battle([player], [robber, mentor], 'dlc_dialogue/opening/intro1.txt', 'dlc_dialogue/opening/intro2.txt', [])
 
+    party = [player, skellybones_ally, pepper]
+
     read_dialogue('dlc_dialogue\opening\intro3.txt')
 
     level_up(party, inq_select("What do you want to level up?", "Durability", "Bravery", "Strength", "Recovery"))
@@ -145,10 +147,16 @@ def dlc_main():
 
         match choice:
             case 1:
-                if inq_select("Starting a new game will completely wipe your save file. Are you sure?", 'No', 'Yes') == 2:
-                    start_dlc()
+                start_dlc()
             case 2:
-                pass
+
+                print('\033c')
+
+                input('Loading...')
+
+                load_dlc()
+
+                menu(dlc_locations[player_data['location']], player_data['location'])
             case 3:
                 player.name = "Unpaid Intern"
                 print("\033c")

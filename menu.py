@@ -6,17 +6,18 @@ from dialogue_reader import read_description
 from save_load import player_data
 from battle import battle
 from level_up import level_up
+from save_load import save_dlc
 
 dlc_locations = [
     {
-        "name": "North Dakota",
-        "mini_locations": ["Train", "Department of Magic", "Department of EMUSA Affairs", "Peasant Island", "Royal Ballroom"],
+        "name": "Capital of North Dakota",
+        "mini_locations": ["Train", "Town Square", "Department of EMUSA Affairs", "Slums", "Palace"],
         'mini_local_desc': ['',
                             '',
                             'dlc_dialogue/north_dakota/nd_dea.txt',
                             '',
                             ''],
-        "intro": 'Dialogue/spookyland_entrance.txt',
+        "intro": 'dlc_dialogue/north_dakota/north_dakota_intro.txt',
         "item": {'item': northdakotium, 'position': 2, 'collected': False},
         "boss": {'boss_encounter': skellybones_fight, 'position': 4, 'defeated': False},
         "ally": skellybones_ally,
@@ -58,12 +59,18 @@ def dlc_explore(location):
 
 def menu(location, index):
 
+    global party
+
     defeated_boss = False
+
+    save_dlc()
+
+    read_dialogue(location['intro'])
 
     while True:
 
         if not defeated_boss:
-            match inq_select(f"What do you want to do in {location['name']}?", "Explore", "Inspect Team", 'Inventory', "Save", "Load", "Exit To Main Menu"):
+            match inq_select(f"What do you want to do in {location['name']}?", "Explore", "Inspect Team", 'Inventory', "Save", "Exit To Main Menu"):
                 case 1:
                     defeated_boss = dlc_explore(location)
                 case 2:
@@ -91,14 +98,16 @@ def menu(location, index):
 
                     input("Enter anything once you're done reading.")
                 case 4:
-                    pass
+                    save_dlc()
                 case 5:
-                    pass
-                case 6:
+
+                    player_data['inventory'] = []
+                    party = [player]
+
                     input("Exiting to main menu...")
                     return 0
         else:
-            match inq_select(f"What do you want to do in {location['name']}?", "Explore", "Inspect Team", 'Inventory', "Proceed To Next Location", "Save", "Load", "Exit To Main Menu"):
+            match inq_select(f"What do you want to do in {location['name']}?", "Explore", "Inspect Team", 'Inventory', "Proceed To Next Location", "Save", "Exit To Main Menu"):
                 case 1:
                     dlc_explore(location)
                 case 2:
@@ -128,16 +137,15 @@ def menu(location, index):
                 case 4:
                     break
                 case 5:
-                    pass
+                    save_dlc()
                 case 6:
-                    pass
-                case 7:
+
+                    player_data['inventory'] = []
+                    party = [player]
+
                     input("Exiting to main menu...")
                     return 0
 
     level_up(party + benched_allies, inq_select("What do you want to level up?", "Durability", "Bravery", "Strength", "Recovery"))
 
     menu(dlc_locations[index + 1], index + 1)
-
-level_up(party, 1)
-menu(dlc_locations[0], 0)

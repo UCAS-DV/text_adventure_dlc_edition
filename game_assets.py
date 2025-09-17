@@ -525,5 +525,7 @@ mentor = enemy("Mentor", 'General Healer', 40, 100, 20, [], [], [], [tip])
 # ================================================= Allies =================================================
 
 # ------- Party -------
-party = [player, skellybones_ally, pepper]
+party = [player]
 benched_allies = []
+
+current_allies = party + benched_allies
