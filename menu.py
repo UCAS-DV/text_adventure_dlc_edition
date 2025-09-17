@@ -11,7 +11,7 @@ dlc_locations = [
     {
         "name": "North Dakota",
         "mini_locations": ["Train", "Department of Magic", "Department of EMUSA Affairs", "Peasant Island", "Royal Ballroom"],
-        'mini_local_desc': ['',
+        'mini_local_desc': ['dlc_dialogue/north_dakota/train.txt',
                             '',
                             'dlc_dialogue/north_dakota/nd_dea.txt',
                             '',
