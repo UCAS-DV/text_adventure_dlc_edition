@@ -2,6 +2,7 @@ import csv                                                                      
 import os
 from InquirerPy import inquirer
 from game_assets import *
+from math import ceil
 
 # Inquire function
 def inq_select(*args):
@@ -25,7 +26,7 @@ dlc_allies = [skellybones_ally, pepper]
 player_data = {
     "location": 0,
     'allies': [player],
-    "inventory": [],
+    "inventory": [''],
     'durability': 0,
     'bravery': 0,
     'strength': 0,
@@ -87,6 +88,31 @@ def load_dlc():
         player_data['bravery'] = int(data[4][1])
         player_data['strength'] = int(data[4][2])
         player_data['recovery'] = int(data[4][3])
+
+        for member in party:
+            member.max_hp += 10 * player_data['durability']
+            member.hp = member.max_hp
+
+            member.max_nerves += 25 * player_data['bravery']
+            member.nerves = member.max_nerves
+            member.min_nerves += 10 * player_data['bravery']
+
+            if member.attacks:
+                for attack in member.attacks:
+                    attack.hp *= (1.25**player_data['strength'])
+                    attack.nerves *= (1.25**player_data['strength'])
+
+                    attack.hp = ceil(attack.hp)
+                    attack.nerves = ceil(attack.nerves)
+
+            if member.heals:
+                for heal in member.heals:
+                    heal.hp *= (1.35**player_data['strength'])
+                    heal.nerves *= (1.35**player_data['strength'])
+                    
+                    heal.hp = ceil(heal.hp)
+                    heal.nerves = ceil(heal.nerves)
+
         
 def save_game(data):
     with open(SAVE_FILE, mode="w", newline="") as file:

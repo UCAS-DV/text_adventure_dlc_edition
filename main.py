@@ -119,16 +119,11 @@ def start_dlc():
 
         tutorial_finished, empty_list = battle([player], [robber, mentor], 'dlc_dialogue/opening/intro1.txt', 'dlc_dialogue/opening/intro2.txt', [])
 
-    party = [player, skellybones_ally, pepper]
-
     read_dialogue('dlc_dialogue\opening\intro3.txt')
 
     level_up(party, inq_select("What do you want to level up?", "Durability", "Bravery", "Strength", "Recovery"))
 
     menu(dlc_locations[0], 0)
-
-    
-
 
 def dlc_main():
     game_title = "Quest For The Country!"

@@ -19,7 +19,7 @@ dlc_locations = [
                             ''],
         "intro": 'dlc_dialogue/north_dakota/north_dakota_intro.txt',
         "item": {'item': northdakotium, 'position': 2, 'collected': False},
-        "boss": {'boss_encounter': skellybones_fight, 'position': 4, 'defeated': False},
+        "boss": {'boss_encounter': king_fight, 'position': 4, 'defeated': False},
         "ally": skellybones_ally,
         "encounter": {'fight': spooky_monsters_fight, 'position': 3, 'defeated': False}
     },
@@ -45,9 +45,11 @@ def dlc_explore(location):
     if selection == location['boss']['position'] and not location['encounter']['defeated']:
         boss_fight = location['boss']['boss_encounter']
         result, empty_list = battle(party, boss_fight.enemies, boss_fight.opening, boss_fight.closing, player_data['inventory'])
-        input(f"{location['ally'].name} has joined our party!")
-        benched_allies.append(location['ally'])
-        player_data['level'] += 1
+
+        if result:
+            input(f"{location['ally'].name} has joined our party!")
+            benched_allies.append(location['ally'])
+
         return result
 
     if selection == location['encounter']['position'] and not location['encounter']['defeated']:

@@ -20,3 +20,12 @@ Maddie:
 
 Michael:
     Prince of North Dakota
+
+Vincent:
+    King of North Dakota
+
+Sawyer:
+    Secretary Wingstop
+
+Sawyer's Brother:
+    Guard

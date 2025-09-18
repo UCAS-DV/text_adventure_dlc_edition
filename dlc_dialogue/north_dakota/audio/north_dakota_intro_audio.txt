@@ -35,4 +35,8 @@
 1
 1
 1
+1dlc_audio\nd_intro\arrival.wav
+1
+1
+1dlc_audio\nd_intro\unexpected_arrival.wav
 1

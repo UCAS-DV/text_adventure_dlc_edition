@@ -9,9 +9,9 @@
 1The conductor freezes and clenchs his fist.
 1CONDUCTOR: "Zeep Vorp... that bastard..."
 1All of your party looks surprised
-1CONDUCTOR: "One day the guy decides to hop on the train without a ticket."
+1CONDUCTOR: "One day that guy decides to hop on the train without a ticket."
 1CONDUCTOR: "When I told him to get off because we live in an ordered society," 
-1CONDUCTOR: "He told me 'Zep veep vodal glab'"
+1CONDUCTOR: "He told me 'Zep veep voodal glab'"
 1CONDUCTOR: "And then shot me in the rib cage!"
 1CONDUCTOR: "Then he stole my damn hat!"
 1You notice that the conductor is hatless.
