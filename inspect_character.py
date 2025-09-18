@@ -49,14 +49,15 @@ def get_char_stats(char_name):
                         print(item.name) #prints the item with only its name, if the expanded info boleen is false 
                 print(" ") #blank print to make a space, not /n because it would make two spaces instead of 1, which i dont want in my formatting
         if pla:
-            if len(player_data["inventory"]):
-                print("Items:")
-                for i in player_data["inventory"]:
-                    if expand_settings["items"] == "collapse":
-                        print(i)
-                    else:
-                        print(i.name)
-                print(" ")
+            #if player_data["inventory"]:
+            #    print("Items:")
+            #    for i in player_data["inventory"]:
+            #        if expand_settings["items"] == "collapse":
+            #            print(i)
+            #        else:
+            #            print(i.name)
+            #    print(" ")
+            pass
         if pla:
             selection = inq_select( #inquire.py select menu, please see helper_funcs.py for more info on how it works! (actually,  i worked really hard on it to make it efficient and well commented)
             f"Would you like to expand any details to see more information?",

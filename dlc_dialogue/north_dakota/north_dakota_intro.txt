@@ -1,4 +1,5 @@
 -dlc_dialogue\north_dakota\audio\north_dakota_intro_audio.txt
++dlc_audio\nd_intro\inside-old-train-169418.mp3
 1You, Mr. Skellybones, and Pepper are on a train to...
 1somewhere?
 1Wait... 
@@ -12,6 +13,8 @@
 1It seems we're going to none other than the Mythical State of North Dakota!
 1I thought it was just legend!
 1How do we even enter North Dakota?
+/
++dlc_audio\nd_intro\airplane-flying-66468.mp3
 1Suddenly, you no longer feel the pull of gravity. 
 1You start flying out of your seat.
 1MR. SKELLYBONES: "Raaaaaah! My bones!"
@@ -32,7 +35,8 @@
 1It flies up, far above the water, the cliff, the clouds.
 1You see a bunch of floating islands with grand castles on them.
 1As you admire the view, the conductor enters the cabin.
-1CONDUCTOR: "We'll be arriving in North Dakota in just a few moments.
+1CONDUCTOR: "We'll be arriving in North Dakota in just a few moments."
+/
 1You hear the train land on some tracks then grind to a halt.
 1CONDUCTOR: "Make that now!"
 1So the legends are true...

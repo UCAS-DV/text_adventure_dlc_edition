@@ -1,0 +1,95 @@
+-dlc_dialogue/north_dakota/audio/palace_audio.txt
+1After hours of wandering, the sun sets and the moon rises.
+1PEPPER: "What now?"
+1MR. SKELLYBONES: "Raaaaaah, what shall we do, honored one."
+1You shrug.
+1PEPPER: "Every second we spend wandering is another second Vorp has to run away."
+1You nod.
+1You place your hand on your chin and think,
+1and think,
+1and think,
+1and remember that you left the fridge open at home.
+1Oh, and then you think of a solution.
+1You close your eyes and spin around until you lose your sense of direction.
+1You stop and open your eyes.
+1You are pointing to a grand, impossible to miss palace that you somehow spent the past hours missing.
+1MR. SKELLYBONES: "In retrospect, we should have started there."
+1You notice that one pair of palace doors are open but guarded.
+1You walk up to the entrance.
+1GUARD: "Do you have an invite to the royal ball?"
+`Style on 'em`Distract
+1You grab Pepper's Candy Cane Tommy Gun and kickflip it.
+1GUARD: "Th-that was radical!"
+1GUARD: "Right this way!"
+1The guards step aside and you enter the ballroom.
+1It's a beautiful palace.
+1Along the walls you see paintings by the greatest artists to ever live.
+1The ceiling is one big canvas depicting the capital of North Dakota.
+1Classical music fills the room as North Dakotan aristocrats slowly waltz to the rhythm
+1At the end of the ballroom you notice a monolithic figure in grand robes and a great crown sitting on a throne.
+1The King of North Dakota...
+1Standing beside him is a nervous looking teenager with a smaller, still pretty crown.
+1He holds his robes so that they are around him, and hide his body
+1The king and him are discussing something.
+1You go around the dancers to talk with the king.
+1KING: "Stop wandering around like a spectre and socialize!"
+1PRINCE: "But I have no interest in talking to anyone here.
+1You clear your throat loudly to get your attention.
+1The king raises his hand to stop the conversation and looks at you.
+1KING: "Who are you and what do you desire?"
+1He waits on your response but Pepper steps in.
+1PEPPER: "They don't really talk all too much."
+1MR. SKELLYBONES: "We have come to inquire on your knowledge of Zeep Vorp?"
+1The king goes pale.
+1KING: "I-I do not know of a 'Zeep Vorp'"
+1KING: "I-it's not like I gave him the North Dakotan Diamond in exchange for him quelling anti-monarchy sentiments"
+1KING: "A-and it's not like he completely left and that all of North Dakota will fall into the ocean in one week!"
+1KING: "Th-that would be absurd!"
+1KING: "Just as absurd as me knowing where Zeep Vorp might have gone but not telling anyone because it's embarassing!"
+1Everyone stops dancing and stares blankly at the king.
+1PRINCE: "Father! I told you not to trust that alien!"
+1KING: "Oh no..."
+1The king panics but soon his panic turns to rage.
+1KING: "Trespassers! How dare you insolently address the king without permission!"
+1PRINCE: "Father, please don't do this."
+1KING: "Boy, get your staff out. I shall slay these peasants totally not because they prompted me to expose my deep dark secret!"
+1The Prince sighs as he gets out his staff.
+2You pick up a pebble and throw it far away.
+2GUARD: "You do realize that trick only works if the person doesn't see you throw it..."
+2You make a spinning motion to say "turn around."
+2The guards shrug and turn around.
+2You run to the pebble, grab it, run back, then throw it.
+2GUARD: "What was that? We should investigate!"
+2All of the guards go in the direction of the pebble and the three of you walk into the ballroom
+2It's a beautiful palace.
+2Along the walls you see paintings by the greatest artists to ever live.
+2The ceiling is one big canvas depicting the capital of North Dakota.
+2Classical music fills the room as North Dakotan aristocrats slowly waltz to the rhythm
+2At the end of the ballroom you notice a monolithic figure in grand robes and a great crown sitting on a throne.
+2The King of North Dakota...
+2Standing beside him is a nervous looking teenager with a smaller, still pretty crown.
+2He holds his robes so that they are around him, and hide his body
+2The king and him are discussing something.
+2You go around the dancers to talk with the king.
+2KING: "Stop wandering around like a spectre and socialize!"
+2PRINCE: "But I have no interest in talking to anyone here.
+2You clear your throat loudly to get your attention.
+2The king raises his hand to stop the conversation and looks at you.
+2KING: "Who are you and what do you desire?"
+2He waits on your response but Pepper steps in.
+2PEPPER: "They don't really talk all too much."
+2MR. SKELLYBONES: "We have come to inquire on your knowledge of Zeep Vorp?"
+2The king goes pale.
+2KING: "I-I do not know of a 'Zeep Vorp'"
+2KING: "I-it's not like I gave him the North Dakotan Diamond in exchange for him quelling anti-monarchy sentiments"
+2KING: "A-and it's not like he completely left and that all of North Dakota will fall into the ocean in one week!"
+2KING: "Th-that would be absurd!"
+2KING: "Just as absurd as me knowing where Zeep Vorp might have gone but not telling anyone because it's embarassing!"
+2Everyone stops dancing and stares blankly at the king.
+2PRINCE: "Father! I told you not to trust that alien!"
+2KING: "Oh no..."
+2The king panics but soon his panic turns to rage.
+2KING: "Trespassers! How dare you insolently address the king without permission!"
+2PRINCE: "Father, please don't do this."
+2KING: "Boy, get your staff out. I shall slay these peasants totally not because they prompted me to expose my deep dark secret!"
+2The Prince sighs as he gets out his staff.

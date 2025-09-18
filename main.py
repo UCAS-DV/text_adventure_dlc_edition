@@ -125,9 +125,6 @@ def start_dlc():
 
     menu(dlc_locations[0], 0)
 
-    
-
-
 def dlc_main():
     game_title = "Quest For The Country!"
     sub_title = "Hunt for Zeep Vorp"
@@ -145,10 +142,16 @@ def dlc_main():
 
         match choice:
             case 1:
-                if inq_select("Starting a new game will completely wipe your save file. Are you sure?", 'No', 'Yes') == 2:
-                    start_dlc()
+                start_dlc()
             case 2:
-                pass
+
+                print('\033c')
+
+                input('Loading...')
+
+                load_dlc()
+
+                menu(dlc_locations[player_data['location']], player_data['location'])
             case 3:
                 player.name = "Unpaid Intern"
                 print("\033c")

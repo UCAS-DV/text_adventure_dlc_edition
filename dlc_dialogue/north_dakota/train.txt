@@ -1,0 +1,27 @@
+-dlc_dialogue/north_dakota/audio/train_audio.txt
+1You and your party enter the train you just exitted.
+1It's a classic passenger train fit decorated like it was the 1800s.
+1You notice the conductor wandering around the train, seemingly aimless.
+1You realize that you haven't asked the conductor about Zeep Vorp.
+1It's a long shot but it's worth trying.
+1You wave to the conductor and he comes over.
+1MR. SKELLYBONES: "Raaaaaah, what do you have any knowledge about Zeep Vorp?"
+1The conductor freezes and clenchs his fist.
+1CONDUCTOR: "Zeep Vorp... that bastard..."
+1All of your party looks surprised
+1CONDUCTOR: "One day that guy decides to hop on the train without a ticket."
+1CONDUCTOR: "When I told him to get off because we live in an ordered society," 
+1CONDUCTOR: "He told me 'Zep veep voodal glab'"
+1CONDUCTOR: "And then shot me in the rib cage!"
+1CONDUCTOR: "Then he stole my damn hat!"
+1You notice that the conductor is hatless.
+1MR. SKELLYBONES: "My condolences for the hat."
+1You nod solemnly as Pepper places her hand on his shoulder to comfort him.
+1The conductor sighs and reaches into his pocket. 
+1He grabs a small photo of his hat on a hat looks at it longingly.
+1You and your party look at it.
+1MR. SKELLYBONES: "That is a nice hat."
+1The conductor sheds a tear.
+1CONDUCTOR: "It was the best hat."
+1You stand back and think about the damage Zeep Vorp is done.
+1He can't keep getting away with this.

@@ -1,15 +1,16 @@
--
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
+-dlc_dialogue\north_dakota\audio\nd_encounter_audio.txt
+1You wander to the outskirts of the capital.
+1Everything, from the clothes on the citizens to the buildings along the streets are in ruin.
+1If you had a penny for every begger you notice on your way through,
+1you'd have 17 cents.
+1You reach into your hoodie pocket for your $20 gift card.
+1But it's gone.
+1You panic and look around.
+1You notice a very suspicious individual running away from behind you.
+1You chase after them.
+1MR. SKELLYBONES: "Raaaaah, honored one, wait!"
+1PEPPER: "Yeah!"
+1Eventually, after a few minutes of running, you catch the individual
 1
 1
 1

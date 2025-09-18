@@ -1,4 +1,4 @@
-debug_mode = False
+debug_mode = True
 
 class enemy:
     def __init__(self, name, enemy_class, max_hp, max_nerves, min_nerves, attacks, abilities, effects, heals):
@@ -516,6 +516,10 @@ tip = attack('tip', "Tip", '', -10, -10, False, False,
 robber = enemy("Robber", 'General Damager', 80, 100, 0, [gun, threat], [], [], [])
 mentor = enemy("Mentor", 'General Healer', 40, 100, 20, [], [], [], [tip])
 
+# ------------------------------------------------- ND Fight -------------------------------------------------
+king_fight = encounter([robber, robber], 'dlc_dialogue/north_dakota/palace.txt', 'dlc_dialogue/north_dakota/train.txt')
+
+
 # ================================================= Encounters =================================================
 
 # ------------------------------------------------- North Dakota Encounter -------------------------------------------------
@@ -527,3 +531,5 @@ mentor = enemy("Mentor", 'General Healer', 40, 100, 20, [], [], [], [tip])
 # ------- Party -------
 party = [player, skellybones_ally, pepper]
 benched_allies = []
+
+current_allies = party + benched_allies

@@ -17,7 +17,7 @@ def level_up(allies, stat):
             for ally in allies:
                 ally.max_nerves += 25
                 ally.nerves += 25
-                ally.min_nerves += 25
+                ally.min_nerves += 10
 
             player_data['bravery'] += 1
         # Strength
