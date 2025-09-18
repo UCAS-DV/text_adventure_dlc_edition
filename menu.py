@@ -138,6 +138,3 @@ def menu(location, index):
     level_up(party + benched_allies, inq_select("What do you want to level up?", "Durability", "Bravery", "Strength", "Recovery"))
 
     menu(dlc_locations[index + 1], index + 1)
-
-level_up(party, 1)
-menu(dlc_locations[0], 0)
