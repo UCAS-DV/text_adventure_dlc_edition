@@ -1,31 +1,32 @@
--
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
+-dlc_dialogue/north_dakota/audio/nd_boss_victory_audio.txt
+1The king falls to his knees and the prince rushes to his side.
+1KING: "You have defeated me, outsiders."
+1Pepper points finger guns at the king.
+1PEPPER: "Where is Zeep Vorp?"
+1The king sighs.
+1KING: "I apologize for letting my anger get to me."
+1KING: "But I will only tell you where he is if you promise me something"
+1Pepper points to finger guns at the king but you lower your hand, indicating that she should stand down
+1She obliges.
+1KING: "Please, recover the North Dakotan diamond and save North Dakota."
+1KING: "I see now that you are our only hope."
+1You nod.
+1KING: "He is in New Rome. Our spies spotted him directing a movie."
+1KING: "Son..."
+1PRINCE: "Yes father?"
+1KING: "Accompany them on their journey."
+1PRINCE: "W-what?!"
+1KING: "Aid them in their journey and ensure that the diamond returns to us."
+1PRINCE: "O-okay."
+1The prince offers you a handshake.
+1PRINCE: "I suppose you're the leader of this group."
+1You shrug.
+1PRINCE: "You are a very skilled warrior."
+1The prince bows to you and everyone in the room looks at him in shock.
+1You do a little shimmy in joy.
+1PRINCE: "For what I lack in combat abilities, I shall make up for in my aptitude for healing magic."
+1PRINCE: "Please, accept me into your party."
+1You give him an earnest thumbs up.
+1PEPPER: "Welcome to the team!"
+1MR. SKELLYBONES: "Raaaaaah, excellent choice, honored one."
+1The four of you leave and ride the train to New Rome.

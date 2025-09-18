@@ -11,7 +11,7 @@ from save_load import save_dlc
 dlc_locations = [
     {
         "name": "North Dakota",
-        "mini_locations": ["Train", "Department of Magic", "Department of EMUSA Affairs", "Peasant Island", "Royal Ballroom"],
+        "mini_locations": ["Train", "Town Square", "Department of EMUSA Affairs", "Slums", "Royal Ballroom"],
         'mini_local_desc': ['dlc_dialogue/north_dakota/train.txt',
                             '',
                             'dlc_dialogue/north_dakota/nd_dea.txt',

@@ -496,7 +496,8 @@ northdakotium = item("Northdakotium", 'An ingot of Northdakotium that you have n
 
 # ------------------------------------------------- Tutorial Fight -------------------------------------------------
 gun = attack("gun", "Gun", "", 25, 0, True, False, 
-             ["The robber uses his gun and misses!", "But then...", "The bullet ricochets off of the cash register and flies out of the window,", "hitting a nearby car in the tire,", 'causing the car to go wildly off course', 'and crash into the gas station,', 'hitting you.', 'The driver gets your insurance information and leaves.'],
+             ["The robber uses his gun and misses!", "But then...", "The bullet ricochets off of the cash register and flies out of the window,", "hitting a nearby car in the tire,", 'causing the car to go wildly off course', 
+              'and crash into the gas station,', 'hitting you.', 'The driver gets your insurance information and leaves.'],
              ['The robber uses his gun and hits you!'],
              ["The robber tries to use his gun but it jams.", "He throws the magazine at you instead."],
              ['The robber tries to use his gun', 'but due to the pressure of battle, he forgets how to use it.', 'He watches an online video tutorial but the thick accent makes it impossible to understand.'], [])
@@ -517,13 +518,13 @@ robber = enemy("Robber", 'General Damager', 80, 100, 0, [gun, threat], [], [], [
 mentor = enemy("Mentor", 'General Healer', 40, 100, 20, [], [], [], [tip])
 
 # ------------------------------------------------- ND Fight -------------------------------------------------
-king_fight = encounter([robber, robber], 'dlc_dialogue/north_dakota/palace.txt', 'dlc_dialogue/north_dakota/train.txt')
+king_fight = encounter([robber, robber], 'dlc_dialogue/north_dakota/palace.txt', 'dlc_dialogue/north_dakota/nd_boss_victory.txt')
 
 
 # ================================================= Encounters =================================================
 
 # ------------------------------------------------- North Dakota Encounter -------------------------------------------------
-
+slums_fight = encounter([robber, robber], 'dlc_dialogue/north_dakota/nd_encounter_intro.txt')
 
 
 # ================================================= Allies =================================================

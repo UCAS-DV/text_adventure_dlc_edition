@@ -1,0 +1,15 @@
+-dlc_dialogue\north_dakota\audio\nd_encounter_audio.txt
+1You wander to the outskirts of the capital.
+1elevated on a seperate sky atoll from the rest of the city.
+1Everything, from the clothes on the citizens to the buildings along the streets are in ruin.
+1If you had a penny for every begger you notice on your way through,
+1you'd have 17 cents.
+1As you walk around, two people jump at you from an alley way!
+1They are holding plastic spoons.
+1MUGGER 1: "Outsiders! What are you doing in these streets."
+1Pepper tries to answer but is interrupted
+1MUGGER 2: "You know, we don't like your kind here..."
+1The first mugger notices that Pepper's elf ears and the fact that Mr. Skellybones is a skeleton.
+1He whispers in the second muggers ear.
+1MUGGER 2: "Not because you're an elf and a skeleton of course!"
+1MUGGER 2:

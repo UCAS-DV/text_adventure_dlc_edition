@@ -1,0 +1,30 @@
+1In the cabin, Mr. Skellybones fills the Prince in on the mission and the world outside of North Dakota.
+1Apparently, he's never heard of anything outside of North Dakota aside from the existence of the EMUSA.
+1PRINCE: "Governor Skellybones, why did you agree to take on such a perilous mission."
+1MR. SKELLYBONES: "I still owed the honored one for the service he has done for my people."
+1PRINCE: "And you, Pepper, why are you here?"
+1PEPPER: "They..."
+1Pepper gestures to you.
+1PEPPER: "Helped restore democracy to the North Pole."
+1The prince turns to you.
+1PRINCE: "You seem to have quite a large portfolio."
+`Act nonchalant`Express thanks
+1You shrug.
+1The prince is amazed by your nonchalant nature.
+1PRINCE: "You are an amazing individual..."
+1The prince turns to Mr. Skellybones and Pepper
+1PRINCE: "Wait, what's their name?"
+1PEPPER: "I dunno"
+1MR. SKELLYBONES: "I am not sure."
+1It seems that you have forgotten your own name.
+1Let me remind you,
+1it's...
+1You hear the train grind to a halt.
+1It seems that we're already here!
+2You bow and then do a backflip in gratitude.
+2Unfortunately, your backflip was so radical that everyone was incapcitated due to the shining glory.
+2This has to be a new record for best backflip you've done.
+2This kinda reminds me of the time you backflipped so radically that it caused an earthquake when you landed.
+2Oh, the good ol' days.
+2You hear the train grind to a halt.
+2It seems that we're already here!
