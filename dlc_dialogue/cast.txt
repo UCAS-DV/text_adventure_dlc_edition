@@ -6,7 +6,7 @@ Darius:
     Conductor
 
 Nyx:
-		Mentor/Guy 2
+	Mentor/Guy 2
 
 Allastor:
     Cashier
@@ -19,7 +19,7 @@ Cecily:
     Pepper
 
 Matthew:
-		Revolutionary
+	Revolutionary
 
 Franco:
     Receptionist
