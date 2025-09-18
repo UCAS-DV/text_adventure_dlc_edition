@@ -1,31 +1,42 @@
-Nick:
-    Mr. Skellybones
-    Zeep Vorp
-
-Allastor:
-    Cashier
+Maddie:
+    Vice President Palmer
 
 Darius:
     Robber/Guy 1
     Conductor
 
-Franco:
-    Receptionist
+Nyx:
+		Mentor/Guy 2
+
+Allastor:
+    Cashier
+
+Nick:
+    Mr. Skellybones
+    Zeep Vorp
 
 Cecily:
     Pepper
 
-Maddie:
-    Vice President Palmer
+Matthew:
+		Revolutionary
 
-Michael:
-    Prince of North Dakota
-
-Vincent:
-    King of North Dakota
+Franco:
+    Receptionist
 
 Sawyer:
     Secretary Wingstop
 
 Sawyer's Brother:
     Guard
+
+Vincent:
+    King of North Dakota
+
+Michael:
+    Prince of North Dakota
+
+
+
+
+
