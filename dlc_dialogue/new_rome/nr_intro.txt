@@ -1,3 +1,5 @@
+-
++dlc_audio\nd_intro\inside-old-train-169418.mp3
 1In the cabin, Mr. Skellybones fills the Prince in on the mission and the world outside of North Dakota.
 1Apparently, he's never heard of anything outside of North Dakota aside from the existence of the EMUSA.
 1PRINCE: "Governor Skellybones, why did you agree to take on such a perilous mission."

@@ -12,4 +12,16 @@
 1The first mugger notices that Pepper's elf ears and the fact that Mr. Skellybones is a skeleton.
 1He whispers in the second muggers ear.
 1MUGGER 2: "Not because you're an elf and a skeleton of course!"
-1MUGGER 2:
+1MUGGER 2: "But because you're not from here!"
+1MUGGER 1: "Yeah! The last thing we are is racist!"
+1MUGGER 2: "We're just xenophobic!"
+`Shake your head in disapproval`Nod in approval
+You shake your head in disapproval.
+1MUGGER 2: "Are you really accusing use of bigotry?"
+1MUGGER 1: "Let's teach them a non-racially motivated lesson!"
+1The muggers point their spoons at you.
+2You nod in approval.
+2MUGGER 2: "See, they get it!"
+2MUGGER 1: "Thank you for being so understanding
+2MUGGER 1: "Now give us all of your money!"
+2The muggers point their spoons at you.

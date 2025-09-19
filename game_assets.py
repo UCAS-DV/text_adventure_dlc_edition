@@ -518,13 +518,24 @@ robber = enemy("Robber", 'General Damager', 80, 100, 0, [gun, threat], [], [], [
 mentor = enemy("Mentor", 'General Healer', 40, 100, 20, [], [], [], [tip])
 
 # ------------------------------------------------- ND Fight -------------------------------------------------
+
+servant = attack("servant", 'Servant Summon', '', 30, 0, True, False, 
+                 ['KING: "Butler Ulbald!"', 'A extremely refined and distinguished butler magically teleports to the side of the king.', 
+                  'With just a glance at the situation, the butler decides to drop kick {tname} so hard that they get sent to the slums.', 'It takes {tname} 25 minutes to walk back.', 
+                  'Fortunately, everyone paused the battle until {tname} arrived', "so {tname} wouldn't miss out."],
+                  ['KING: "Butler Vedlip!"', "A refined and distinguished butler rushes to the king's side.", 'KING: "Attack!"', 'The butler nods then grabs {tname}.', 'He suplexes {tname} so hard that the floor below cracked.'],
+                  ['KING: "Butler Ellvin!"', "A somewhat refined and distinguished butler arrives at the king's side a few minutes later.", 
+                   'KING: "Attack!"', 'The butler hesitantly nods and punches {tname} in the nose.', 'He then scurries off.'],
+                   ['The king tries to yell for a butler but it seems that he has lost his voice from yelling.', 'The king drinks a cup of water.'])
+
+# heal_aura_enemy = attack('heal_aura', 'Heal Aura', '', -20, 0, )
+
 king_fight = encounter([robber, robber], 'dlc_dialogue/north_dakota/palace.txt', 'dlc_dialogue/north_dakota/nd_boss_victory.txt')
 
 
 # ================================================= Encounters =================================================
 
 # ------------------------------------------------- North Dakota Encounter -------------------------------------------------
-slums_fight = encounter([robber, robber], 'dlc_dialogue/north_dakota/nd_encounter_intro.txt')
 
 
 # ================================================= Allies =================================================

@@ -72,7 +72,7 @@
 2The king and him are discussing something.
 2You go around the dancers to talk with the king.
 2KING: "Stop wandering around like a spectre and socialize!"
-2PRINCE: "But I have no interest in talking to anyone here.
+2PRINCE: "But I have no interest in talking to anyone here."
 2You clear your throat loudly to get your attention.
 2The king raises his hand to stop the conversation and looks at you.
 2KING: "Who are you and what do you desire?"

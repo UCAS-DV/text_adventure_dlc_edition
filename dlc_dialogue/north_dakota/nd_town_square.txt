@@ -1,0 +1,15 @@
+-dlc_dialogue\north_dakota\audio\nd_town_square_audio.txt
+1You wander into the town square where someone is standing on a crushed cardboard box.
+1The person wears a red pin on their shirt.
+1PERSON: "There is no greater evil than tyranny!"
+1PERSON: "No person has the right to oppress another!"
+1PERSON: "Society must..."
+1PERSON: "Wait, what am I saying?"
+1The person pulls out flashcards from their pocket.
+1He reads a flashcard
+1PERSON: "What is the powerhouse of the cell!"
+1He double checks his cards.
+1PERSON: "Damn it! I got my biology flashcards not my 'Yelling in the Street' flashcards!"
+1He sighs and steps off the crushed box.
+1You clap to make him feel better.
+1PERSON: "Thank you."

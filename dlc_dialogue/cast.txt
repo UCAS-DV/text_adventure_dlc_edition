@@ -19,7 +19,7 @@ Cecily:
     Pepper
 
 Matthew:
-	Revolutionary
+	PERSON (Revolutionary)
 
 Franco:
     Receptionist
