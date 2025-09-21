@@ -47,7 +47,7 @@
 1KING: "Th-that would be absurd!"
 1KING: "Just as absurd as me knowing where Zeep Vorp might have gone but not telling anyone because it's embarassing!"
 1Everyone stops dancing and stares blankly at the king.
-1PRINCE: "Father! I told you not to trust that alien!"
+1PRINCE: "I told you not to trust that alien!"
 1KING: "Oh no..."
 1The king panics but soon his panic turns to rage.
 1KING: "Trespassers! How dare you insolently address the king without permission!"

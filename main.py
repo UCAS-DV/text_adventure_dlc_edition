@@ -121,7 +121,7 @@ def start_dlc():
 
     read_dialogue('dlc_dialogue\opening\intro3.txt')
 
-    level_up(party, inq_select("What do you want to level up?", "Durability", "Bravery", "Strength", "Recovery"))
+    level_up(party, inq_select("What do you want to level up?", "Durability", "Bravery", "Strength", "Recovery"), 1)
 
     menu(dlc_locations[0], 0)
 
@@ -180,6 +180,7 @@ def main():
                 if inq_select("This DLC contains spoilers for the main game. It is advised to only play if you have beaten the base game. Do you want to continue?", 'No', 'Yes') == 2:
                     player.name = "Paid Intern"
                     print("\033c")
+                    
                     dlc_main()
             case 4:
                 extras_main()

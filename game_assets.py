@@ -1,4 +1,4 @@
-debug_mode = True
+debug_mode = False
 
 class enemy:
     def __init__(self, name, enemy_class, max_hp, max_nerves, min_nerves, attacks, abilities, effects, heals):
@@ -361,9 +361,9 @@ snowball = attack('snowball', 'Snow Ball', '', 25, 10, True, False,
                   ['The elf makes a kind of spherical snowball using magically summoned snow', 'It tosses it but it barely hits you.'],
                   ['Like a complete IDIOT,', 'the elf makes a poorly formed snowball and COMPLETELY misses like a LOSER!'], [])
 
-elf_one = enemy('Spec. Ops. Elf 1', 'General Damager', 50, 100, 30, [present_enemy, snowball], [], [], [])
-elf_two = enemy('Spec. Ops. Elf 2', 'General Damager', 50, 100, 30, [present_enemy, snowball], [], [], [])
-reindeer = enemy('Spec. Ops. Reindeer', 'Effect Support', 70, 100, 20, [], [shine], [], [])
+elf_one = enemy('Spec. Ops. Elf 1', 'Focused Damager', 50, 100, 30, [present_enemy, snowball], [], [], [])
+elf_two = enemy('Spec. Ops. Elf 2', 'Focused Damager', 50, 100, 30, [present_enemy, snowball], [], [], [])
+reindeer = enemy('Spec. Ops. Reindeer', 'AOE Effect Support', 70, 100, 20, [], [shine], [], [])
 
 spec_ops_fight = encounter([elf_one, elf_two, reindeer], 'Dialogue/north_pole/spec_ops_intro.txt', 'Dialogue/north_pole/spec_ops_outro.txt')
 
@@ -452,19 +452,24 @@ shield_up = attack("shield_up", "Shield Up", "Deploys a calming shield to reduce
 zeep_vorp_ally = ally("Zeep Vorp", 60, 100, 10, [charge_ally], [shield_up],[],[heal_field])
 
 # ------------------------------------------------- Pepper -------------------------------------------------
-beam_ally = attack('beam', 'Peppermint Beam', '', 25, 0, True, False,
+beam_ally = attack('beam', 'Peppermint Beam', "Don't you love it when elves do they super famous and iconic peppermint beam that everyone knows about?", 25, 0, True, False,
               ['Pepper stands back and gets ready for something.', 'She closes her eyes and starts yelling for some reason?.', 'Suddenly, she starts glowing the hat on her head turns from a dark green to a bright white.'
                '"SUPER"', '"PEPPER-"', '"MINT"', '"BEEEEEEEEEEEEAAAAAAAAAAAAAAMMMMMMMMMMM!"', 'The light from the beam is blinding.', "It's thin as paper but the damage is incredible."],
               ['Pepper makes a finger gun and points it at {tname}.','"PEPPERMINT"', '"BEAM!', "The laser blasts out of her hand and burns with the heat of a thousand suns.", "It's extremely precise and Worst of all,", 'it tastes like peppermint.', 'Gross...'],
               ['"PEPPERMINT"', '""BLAST!"', 'Nothing happens.', '"Wait..."', '"That is not right."', '"Peppermint beam?"', "The beam fires out of her hands at {tname}, but because of the embarrasment of her initial blast, it's less powerful."],
               ['PEPPERMINT', 'BEAM!', 'At the speed of light, it fires out of her hand.', 'She smirks arrogantly, proud of her actions.', 'She completely missed.', 'Haha,', 'loser.'], [])
-present_ally = attack('present', 'Present', '', 0, 15, True, False,
+present_ally = attack('present', 'Present', 'Use this to bug your enemies, the Christmas way.', 0, 20, True, False,
                        ['Using her elf skills,', 'Pepper quickly builds a teddy bear?', 'Huh, everyone looks at it adoringly.', 'But then, {tname} looks in its cold,', 'dead,', 'apathetic', 'eyes,', 'and is very disturbed by it.'],
                        ['Using her elf skills,', 'Pepper quickly builds a water gun and fires it at {tname}.', "Now they're cold, wet, and not very happy."],
                        ['Using her elf skills,', 'Pepper quickly builds one of those really mesmerizing fans that light up.', 'You know the one.', 'Anyway she turns it on and it mesmerizes {tname}.', '{tname} eventually regains control abd is only a little panicked to see how much happened while he was in a trance.'],
                        ['Using her elf skills,', 'Pepper quickly builds a sticky hand and flings it at {tname}.'], [])
+tommy_gun = attack('tommy_gun', 'Candy Gun', "It's a gun made out of candy cane. What did you expect?", 15, 0, True, True,
+                   ['PEPPER: "Heheheh!"', 'Pepper uses her gun made out of candy cane and fires indiscriminately.', 'Somehow, despite literally closing her eyes and spinning around,', 'she hits all of her shots.'],
+                   ['PEPPER: "Heheheh!"' 'Pepper pulls out a tommy gun made out of candy cane and indiscriminately fires it at opponents.'],
+                   ['PEPPER: "Heheheh!"', 'Pepper pelts the opponents with bullets made out of peppermint.', 'She hits them but misses most of her shots.'],
+                   ['PEPPER: "Heheheh!"', 'Pepper fires her candy cane tommy gun and...', 'misses every shot!', 'You look at Pepper disappointed because she had 40 chances to hit someone and wiffed all of them.', 'PEPPER: "Can it!"', 'She says that despite you being completely silent.'], [])
 
-pepper = ally('Pepper', 50, 100, 25, [beam_ally, present_ally], [], [], [])
+pepper = ally('Pepper', 50, 100, 25, [beam_ally, present_ally, tommy_gun], [], [], [])
 
 
 
@@ -514,8 +519,8 @@ tip = attack('tip', "Tip", '', -10, -10, False, False,
              ["The robber's mentor whispers to the robber:", 'MENTOR: "Uh... um... honestly I do not know."', 'MENTOR: "Try to win?"'],
              ["The robber's mentor whispers to the robber.", 'But the whispering is so quiet that not even the robber understands what is said.'], [])
 
-robber = enemy("Robber", 'General Damager', 80, 100, 0, [gun, threat], [], [], [])
-mentor = enemy("Mentor", 'General Healer', 40, 100, 20, [], [], [], [tip])
+robber = enemy("Robber", 'Focused Damager', 80, 100, 0, [gun, threat], [], [], [])
+mentor = enemy("Mentor", 'Focused Healer', 40, 100, 20, [], [], [], [tip])
 
 # ------------------------------------------------- ND Fight -------------------------------------------------
 
@@ -523,14 +528,29 @@ servant = attack("servant", 'Servant Summon', '', 30, 0, True, False,
                  ['KING: "Butler Ulbald!"', 'A extremely refined and distinguished butler magically teleports to the side of the king.', 
                   'With just a glance at the situation, the butler decides to drop kick {tname} so hard that they get sent to the slums.', 'It takes {tname} 25 minutes to walk back.', 
                   'Fortunately, everyone paused the battle until {tname} arrived', "so {tname} wouldn't miss out."],
-                  ['KING: "Butler Vedlip!"', "A refined and distinguished butler rushes to the king's side.", 'KING: "Attack!"', 'The butler nods then grabs {tname}.', 'He suplexes {tname} so hard that the floor below cracked.'],
-                  ['KING: "Butler Ellvin!"', "A somewhat refined and distinguished butler arrives at the king's side a few minutes later.", 
-                   'KING: "Attack!"', 'The butler hesitantly nods and punches {tname} in the nose.', 'He then scurries off.'],
-                   ['The king tries to yell for a butler but it seems that he has lost his voice from yelling.', 'The king drinks a cup of water.'])
+                 ['KING: "Butler Vedlip!"', "A refined and distinguished butler rushes to the king's side.", 'KING: "Attack!"', 'The butler nods then grabs {tname}.', 
+                  'He suplexes {tname} so hard that the floor below cracked.'],
+                 ['KING: "Butler Ellvin!"', "A somewhat refined and distinguished butler arrives at the king's side a few minutes later.", 
+                  'KING: "Attack!"', 'The butler hesitantly nods and punches {tname} in the nose.', 'He then scurries off.'],
+                 ['The king tries to yell for a butler but it seems that he has lost his voice from yelling.', 'The king drinks a cup of water.'], [])
 
-# heal_aura_enemy = attack('heal_aura', 'Heal Aura', '', -20, 0, )
 
-king_fight = encounter([robber, robber], 'dlc_dialogue/north_dakota/palace.txt', 'dlc_dialogue/north_dakota/nd_boss_victory.txt')
+
+heal_aura_enemy = attack('heal_aura', 'Heal Aura', '', -20, 0, False, True, 
+                         ['The Prince tries to twist the crystal but the crystal speaks.', 'CRYSTAL: "I got you homie."', "Although only I can hear it say that because it's another inanimate voice.",
+                           'Anyway, it turns itself into a neon green.', 'The healing aura that comes from it is blinding.'],
+                         ['The Prince twists the crystal floating within the curve of his staff.', 'The clear crystal turns green.', 
+                          'He slams the bottom of his staff down and from the crystal a healing green aura eminates.'],
+                         ['The Prince twists the crystal floating within the curve of his staff.', 'The clear crystal turns red.', 'The prince then turns it again.', 
+                          'It turns yellow.', 'He turns it one more time and it finally turns green and eminates a healing aura.', 'But...', 'that was the end of his turn so he sighs and stops the healing.'],
+                         ['The Prince twists the crystal floating within the curve of his staff.', 'The clear crystal turns green.', 'He slams the bottom of his staff down but he slams it too hard.', 
+                          'The crystal falls out of the staff and rolls to you.', 'PRINCE: "May I please have that back?"', 'You nod and hand it back.'], [])
+
+king = enemy("The King of North Dakota", 'Focused Damager', 120, 120, 10, [servant], [], [], [])
+
+prince_enemy = enemy("The Prince of North Dakota", 'AOE Healer', 70, 100, 10, [], [], [], [heal_aura_enemy])
+
+king_fight = encounter([king, prince_enemy], 'dlc_dialogue/north_dakota/palace.txt', 'dlc_dialogue/north_dakota/nd_boss_victory.txt')
 
 
 # ================================================= Encounters =================================================
@@ -539,7 +559,17 @@ king_fight = encounter([robber, robber], 'dlc_dialogue/north_dakota/palace.txt',
 
 
 # ================================================= Allies =================================================
+heal_aura_ally = attack('heal_aura', 'Heal Aura', '', -15, 0, False, True, 
+                         ['The Prince tries to twist the crystal but the crystal speaks.', 'CRYSTAL: "I got you homie."', "Although only I can hear it say that because it's another disembodied voice.",
+                           'Anyway, it turns itself into a neon green.', 'The healing aura that comes from it is blinding.'],
+                         ['The Prince twists the crystal floating within the curve of his staff.', 'The clear crystal turns green.', 
+                          'He slams the bottom of his staff down and from the crystal a healing green aura eminates.'],
+                         ['The Prince twists the crystal floating within the curve of his staff.', 'The clear crystal turns red.', 'The prince then turns it again.', 
+                          'It turns yellow.', 'He turns it one more time and it finally turns green and eminates a healing aura.', 'But...', 'that was the end of his turn so he sighs and stops the healing.'],
+                         ['The Prince twists the crystal floating within the curve of his staff.', 'The clear crystal turns green.', 'He slams the bottom of his staff down but he slams it too hard.', 
+                          'The crystal falls out of the staff and rolls to you.', 'PRINCE: "May I please have that back?"', 'Your opponent nods and hands it back.'], [])
 
+prince_ally = ally("The Prince of North Dakota", 70, 100, 30, [], [], [], [heal_aura_ally])
 # ------- Party -------
 party = [player, skellybones_ally, pepper]
 benched_allies = []

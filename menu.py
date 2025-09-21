@@ -13,7 +13,7 @@ dlc_locations = [
         "name": "North Dakota",
         "mini_locations": ["Train", "Town Square", "Department of EMUSA Affairs", "Slums", "Royal Ballroom"],
         'mini_local_desc': ['dlc_dialogue/north_dakota/train.txt',
-                            '',
+                            'dlc_dialogue/north_dakota/nd_town_square.txt',
                             'dlc_dialogue/north_dakota/nd_dea.txt',
                             '',
                             ''],
@@ -42,19 +42,24 @@ def dlc_explore(location):
     elif selection == location['item']['position'] and location['item']['collected']:
         return False
 
-    if selection == location['boss']['position'] and not location['encounter']['defeated']:
+    if selection == location['boss']['position'] and not location['boss']['defeated']:
         boss_fight = location['boss']['boss_encounter']
         result, empty_list = battle(party, boss_fight.enemies, boss_fight.opening, boss_fight.closing, player_data['inventory'])
 
         if result:
+            level_up(party + benched_allies, inq_select("What do you want to level up?", "Durability", "Bravery", "Strength", "Recovery"), 1)
             input(f"{location['ally'].name} has joined our party!")
             benched_allies.append(location['ally'])
+            location['boss']['defeated'] = True
 
         return result
 
     if selection == location['encounter']['position'] and not location['encounter']['defeated']:
         fight = location['encounter']['fight']
-        battle(party, fight.enemies, fight.opening, fight.closing, player_data['inventory'])
+        result, empty_list = battle(party, fight.enemies, fight.opening, fight.closing, player_data['inventory'])
+        if result:
+            level_up(party + benched_allies, inq_select("What do you want to level up?", "Durability", "Bravery", "Strength", "Recovery"), 0.5)
+            location['encounter']['defeated'] = True
         return False
     
     read_dialogue(location['mini_local_desc'][selection])
@@ -147,7 +152,5 @@ def menu(location, index):
 
                     input("Exiting to main menu...")
                     return 0
-
-    level_up(party + benched_allies, inq_select("What do you want to level up?", "Durability", "Bravery", "Strength", "Recovery"))
 
     menu(dlc_locations[index + 1], index + 1)

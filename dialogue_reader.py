@@ -39,7 +39,7 @@ def read_dialogue(filepath):
             pygame.mixer.music.stop()
 
         try:
-            if audio[spot][1:]:
+            if path == target_path and audio[spot][1:]:
                 voice_line = pygame.mixer.Sound(audio[spot][1:])
                 voice_line.play()
             
@@ -50,7 +50,10 @@ def read_dialogue(filepath):
         if path == target_path:
             if input(f'{line[1:]} (Enter to Continue)').lower() == 'skip':
                 pygame.mixer.music.stop()
+                pygame.mixer.stop()
                 break
+
+            pygame.mixer.stop()
                                                                             
         elif path == '`':
             decisions = line.split('`')

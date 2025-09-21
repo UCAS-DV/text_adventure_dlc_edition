@@ -17,7 +17,7 @@
 1KING: "Accompany them on their journey."
 1PRINCE: "W-what?!"
 1KING: "Aid them in their journey and ensure that the diamond returns to us."
-1PRINCE: "O-okay."
+1PRINCE: "Oh, okay."
 1The prince offers you a handshake.
 1PRINCE: "I suppose you're the leader of this group."
 1You shrug.

@@ -74,10 +74,12 @@ def load_dlc():
         data = file.read().split("|")
 
         for ally_index in data[0]:
-            party.append(dlc_allies[int(ally_index)])
+            if dlc_allies[int(ally_index)] not in party:
+                party.append(dlc_allies[int(ally_index)])
 
         for ally_index in data[1]:
-            benched_allies.append(dlc_allies[int(ally_index)])
+            if dlc_allies[int(ally_index)] not in benched_allies:
+                benched_allies.append(dlc_allies[int(ally_index)])
 
         for item_index in data[2]:
             player_data['inventory'].append(dlc_items[int(item_index)])

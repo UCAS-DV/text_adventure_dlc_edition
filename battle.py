@@ -8,6 +8,13 @@ import os
 import effects
 from save_load import *
 
+# Define color codes
+RED = "\033[31m"
+GREEN = "\033[32m"
+PURPLE = "\033[35m"
+GOLD = "\033[33m"   # yellow/gold
+RESET = "\033[0m"
+
 # Attacks target   
 def attack_them(att, dealer, targets, nerves):
 
@@ -51,30 +58,30 @@ def attack_them(att, dealer, targets, nerves):
 
     for target in targets:
 
-        #print(target.effects)
+        if target.hp < 0:
+            continue
 
         # Blindness deals 25% more damage
         if 1 in target.effects:
-            
             if dmg > 0: 
                 dmg *= 1.25
                 dmg = round(dmg)
-                print(f'{target.name} took {dmg - round(dmg/1.25)} more damage due to blindness')
+                print(RED + f'{target.name} took {dmg - round(dmg/1.25)} more damage due to blindness' + RESET)
             if discomfort > 0: 
                 discomfort *= 1.25
                 discomfort = round(discomfort)
-                print(f'{target.name} lost {discomfort - round(discomfort/1.25)} more nerves due to blindness')
+                print(PURPLE + f'{target.name} lost {discomfort - round(discomfort/1.25)} nerves due to blindness' + RESET)
 
         # Shielded resists 25% of damage
         if 2 in target.effects:
             if dmg > 0: 
                 dmg *= 0.75
                 dmg = round(dmg)
-                print(f'{target.name} resisted {round(dmg / 0.75) - dmg} points of damage due to being shielded')
+                print(GREEN + f'{target.name} resisted {round(dmg / 0.75) - dmg} damage due to being shielded' + RESET)
             if discomfort > 0: 
                 discomfort *= 0.75
                 discomfort = round(discomfort)
-                print(f'{target.name} resisted {round(discomfort / 0.75) - discomfort} points of nerve loss due to shielded')
+                print(GOLD + f'{target.name} resisted {round(discomfort / 0.75) - discomfort} nerve loss due to shielded' + RESET)
 
         dmg = round(dmg)
         target.hp -= dmg
@@ -82,13 +89,13 @@ def attack_them(att, dealer, targets, nerves):
         discomfort = round(discomfort)
         target.nerves -= discomfort
 
-        # Sets hp to 0 if it's below 0
+        # Keep hp within range
         if target.hp < 0:
             target.hp = 0
         elif target.hp > target.max_hp:
             target.hp = target.max_hp
 
-        # Sets nerves to minimum if it's below minimum
+        # Keep nerves within range
         if target.nerves < target.min_nerves:
             target.nerves = target.min_nerves
         elif target.nerves > target.max_nerves:
@@ -96,18 +103,23 @@ def attack_them(att, dealer, targets, nerves):
 
         # Print the amount of damage done
         if dmg < 0:
-            print(f'{dealer.name} gave {target.name} {-dmg} health!')
+            print(GREEN + f'{dealer.name} gave {target.name} {-dmg} health!' + RESET)
         elif dmg > 0:
-            print(f'{dealer.name} dealt {dmg} damage to {target.name}!')
+            print(RED + f'{dealer.name} dealt {dmg} damage to {target.name}!' + RESET)
 
         # Print the amount of discomfort done
         if discomfort < 0:
-            print(f'{dealer.name} gave {target.name} {-discomfort} nerves!')
+            print(GOLD + f'{dealer.name} gave {target.name} {-discomfort} nerves!' + RESET)
         elif discomfort > 0:
-            print(f'{dealer.name} removed {discomfort} nerves from {target.name}!')
+            print(PURPLE + f'{dealer.name} removed {discomfort} nerves from {target.name}!' + RESET)
 
-        # Apply the effect
-        #effects.apply(att.ability, target)
+        if 1 in target.effects:
+            dmg /= 1.25
+            discomfort /= 1.25
+
+        if 2 in target.effects:
+            dmg /= 0.75
+            discomfort /= 0.75
 
 # Formats items so it can be used in UI
 def format(unformatted_list):
@@ -155,11 +167,19 @@ def use_item(item, allies, enemies):
                         enemy.hp += item.hp
                         enemy.nerves += item.nerves
 
-                input(f'All enemies lost {-item.hp} health.\nAll enemies lost {-item.nerves} nerves.')
-                
+                # Print results
+                if item.hp < 0:
+                    print(RED + f'All enemies lost {-item.hp} health.' + RESET)
+                elif item.hp > 0:
+                    print(GREEN + f'All enemies gained {item.hp} health.' + RESET)
+
+                if item.nerves < 0:
+                    print(PURPLE + f'All enemies lost {-item.nerves} nerves.' + RESET)
+                elif item.nerves > 0:
+                    print(GOLD + f'All enemies gained {item.nerves} nerves.' + RESET)
+
                 break
             else:
-                
                 # Print out all enemy info and have user select enemy
                 enemy_info = format(enemies)
 
@@ -168,8 +188,7 @@ def use_item(item, allies, enemies):
                 if enemy_selected == 'Back':
                     break
 
-                target=enemy_selected
-
+                target = enemy_selected
                 enemies.remove(enemy_selected)
 
                 read_description(item.a_desc, target)
@@ -180,31 +199,42 @@ def use_item(item, allies, enemies):
 
                 enemies.append(enemy_selected)
 
-                target = enemy_selected
+                # Print results
+                if item.hp < 0:
+                    print(RED + f'{enemy_selected.name} lost {-item.hp} health.' + RESET)
+                elif item.hp > 0:
+                    print(GREEN + f'{enemy_selected.name} gained {item.hp} health.' + RESET)
 
-                input(f'{enemy_selected.name} lost {-item.hp} health.\n{enemy_selected.name} lost {-item.nerves} nerves.')
-                
+                if item.nerves < 0:
+                    print(PURPLE + f'{enemy_selected.name} lost {-item.nerves} nerves.' + RESET)
+                elif item.nerves > 0:
+                    print(GOLD + f'{enemy_selected.name} gained {item.nerves} nerves.' + RESET)
+
                 break
         else:
             # IF item affects multiple allies
             if item.multi:
-                
-                # Applies effects to all allies
                 for ally in allies:  
                     if ally.hp > 0:
                         ally.hp += item.hp
                         ally.nerves += item.nerves
 
                 target = game_assets.all_allies
-
                 read_description(item.a_desc, target)
 
-                input(f'All allies gained {item.hp} health.\nAll enemies gained {item.nerves} nerves.')
+                # Print results
+                if item.hp > 0:
+                    print(GREEN + f'All allies gained {item.hp} health.' + RESET)
+                elif item.hp < 0:
+                    print(RED + f'All allies lost {-item.hp} health.' + RESET)
+
+                if item.nerves > 0:
+                    print(GOLD + f'All allies gained {item.nerves} nerves.' + RESET)
+                elif item.nerves < 0:
+                    print(PURPLE + f'All allies lost {-item.nerves} nerves.' + RESET)
 
                 break
             else:
-                
-                # Print out all enemy info and have user select enemy
                 ally_info = format(allies)
                 ally_selected = choose('Which ally would you like to select? ', allies)
 
@@ -219,13 +249,23 @@ def use_item(item, allies, enemies):
                 ally_selected.nerves += item.nerves
 
                 allies.append(ally_selected)   
-
                 read_description(item.a_desc, target)
 
-                input(f'{ally_selected.name} gained {item.hp} health.\n{ally_selected.name} gained {item.nerves} nerves.')
+                # Print results
+                if item.hp > 0:
+                    print(GREEN + f'{ally_selected.name} gained {item.hp} health.' + RESET)
+                elif item.hp < 0:
+                    print(RED + f'{ally_selected.name} lost {-item.hp} health.' + RESET)
+
+                if item.nerves > 0:
+                    print(GOLD + f'{ally_selected.name} gained {item.nerves} nerves.' + RESET)
+                elif item.nerves < 0:
+                    print(PURPLE + f'{ally_selected.name} lost {-item.nerves} nerves.' + RESET)
 
                 break
+
     return allies, enemies
+
 
 # Main battle function
 def battle(allies, enemies, opening, closing, inventory):
@@ -250,7 +290,6 @@ def battle(allies, enemies, opening, closing, inventory):
         combatant.effects = []
 
     while not battle_ended:
-
         
         # Checks if every ally has been knocked down
         lost = True
@@ -258,11 +297,17 @@ def battle(allies, enemies, opening, closing, inventory):
             if ally.hp > 0:
                 lost = False
 
+            if ally.hp > ally.max_hp:
+                ally.hp = ally.max_hp
+
         # Checks if every enemy has been knocked down
         won = True
         for enemy in enemies:
             if enemy.hp > 0:
                 won = False
+
+            if enemy.hp > enemy.max_hp:
+                enemy.hp = enemy.max_hp
 
         if lost:
 
@@ -290,7 +335,7 @@ def battle(allies, enemies, opening, closing, inventory):
             victory = True
             battle_ended = True
             break
-        
+
         # IF player's turn
         if turn % 2 == 0:
             player_acted = False
@@ -388,7 +433,6 @@ def battle(allies, enemies, opening, closing, inventory):
                             turn += 1
                             effects.turn = turn
 
-                
                 # Use Item
                 case 3:
 
