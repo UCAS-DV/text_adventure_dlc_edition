@@ -1,4 +1,5 @@
 debug_mode = False
+allow_audio = False
 
 class enemy:
     def __init__(self, name, enemy_class, max_hp, max_nerves, min_nerves, attacks, abilities, effects, heals):

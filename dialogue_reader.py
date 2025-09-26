@@ -1,8 +1,10 @@
 from helper_funcs import inq_select
+from game_assets import allow_audio
 import pygame
 
-pygame.init()
-pygame.mixer.init() 
+if allow_audio:
+    pygame.init()
+    pygame.mixer.init() 
 
 # Converts choosen dialogue file to a list of strings
 def read_dialogue_file(filepath):
@@ -32,14 +34,16 @@ def read_dialogue(filepath):
         
         if path == '+':
             backing_track = line[1:]
-            pygame.mixer.music.load(backing_track)
-            pygame.mixer.music.play(-1)
+            if allow_audio:
+                pygame.mixer.music.load(backing_track)
+                pygame.mixer.music.play(-1)
 
         if path == '/':
-            pygame.mixer.music.stop()
+            if allow_audio:
+                pygame.mixer.music.stop()
 
         try:
-            if path == target_path and audio[spot][1:]:
+            if path == target_path and audio[spot][1:] and allow_audio:
                 voice_line = pygame.mixer.Sound(audio[spot][1:])
                 voice_line.play()
             
@@ -49,11 +53,12 @@ def read_dialogue(filepath):
         # IF dialogue on current path, print dialogue
         if path == target_path:
             if input(f'{line[1:]} (Enter to Continue)').lower() == 'skip':
-                pygame.mixer.music.stop()
-                pygame.mixer.stop()
+                if allow_audio:
+                    pygame.mixer.music.stop()
+                    pygame.mixer.stop()
                 break
-
-            pygame.mixer.stop()
+            if allow_audio:
+                pygame.mixer.stop()
                                                                             
         elif path == '`':
             decisions = line.split('`')
