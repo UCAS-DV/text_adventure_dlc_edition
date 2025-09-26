@@ -26,7 +26,7 @@ dlc_allies = [skellybones_ally, pepper]
 player_data = {
     "location": 0,
     'allies': [player],
-    "inventory": [''],
+    "inventory": [],
     'durability': 0,
     'bravery': 0,
     'strength': 0,
@@ -52,9 +52,10 @@ def save_dlc():
         save_string += '|'
 
         # Add indexes of the items currently in inventory
-        for i in range(0,len(dlc_items)):
-            if player_data['inventory'][i] in dlc_items:
-                save_string += str(i)
+        if player_data['inventory']:
+            for i in range(0,len(dlc_items)):
+                if player_data['inventory'][i] in dlc_items:
+                    save_string += str(i)
 
         save_string += '|'
 
@@ -62,10 +63,10 @@ def save_dlc():
 
         save_string += '|'
 
-        save_string += str(player_data['durability'])
-        save_string += str(player_data['bravery'])
-        save_string += str(player_data['strength'])
-        save_string += str(player_data['recovery'])
+        save_string += str(player_data['durability']) + '|'
+        save_string += str(player_data['bravery']) + '|'
+        save_string += str(player_data['strength']) + '|'
+        save_string += str(player_data['recovery']) + '|'
 
         file.write(save_string)
 
@@ -81,23 +82,24 @@ def load_dlc():
             if dlc_allies[int(ally_index)] not in benched_allies:
                 benched_allies.append(dlc_allies[int(ally_index)])
 
-        for item_index in data[2]:
-            player_data['inventory'].append(dlc_items[int(item_index)])
+        if data[2]:
+            for item_index in data[2]:
+                player_data['inventory'].append(dlc_items[int(item_index)])
 
         player_data['location'] = int(data[3])
 
-        player_data['durability'] = int(data[4][0])
-        player_data['bravery'] = int(data[4][1])
-        player_data['strength'] = int(data[4][2])
-        player_data['recovery'] = int(data[4][3])
+        player_data['durability'] = float(data[4])
+        player_data['bravery'] = float(data[5])
+        player_data['strength'] = float(data[6])
+        player_data['recovery'] = float(data[7])
 
         for member in party:
-            member.max_hp += 10 * player_data['durability']
+            member.max_hp += ceil(20 * player_data['durability'])
             member.hp = member.max_hp
 
-            member.max_nerves += 25 * player_data['bravery']
+            member.max_nerves += ceil(25 * player_data['bravery'])
             member.nerves = member.max_nerves
-            member.min_nerves += 10 * player_data['bravery']
+            member.min_nerves += ceil(10 * player_data['bravery'])
 
             if member.attacks:
                 for attack in member.attacks:
@@ -109,11 +111,13 @@ def load_dlc():
 
             if member.heals:
                 for heal in member.heals:
-                    heal.hp *= (1.35**player_data['strength'])
-                    heal.nerves *= (1.35**player_data['strength'])
+                    heal.hp *= (1.35**player_data['recovery'])
+                    heal.nerves *= (1.35**player_data['recovery'])
                     
                     heal.hp = ceil(heal.hp)
                     heal.nerves = ceil(heal.nerves)
+
+    
 
         
 def save_game(data):

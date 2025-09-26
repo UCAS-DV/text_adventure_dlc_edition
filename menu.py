@@ -10,8 +10,8 @@ from save_load import save_dlc
 
 dlc_locations = [
     {
-        "name": "North Dakota",
-        "mini_locations": ["Train", "Town Square", "Department of EMUSA Affairs", "Slums", "Royal Ballroom"],
+        "name": "North Dakotan Capitol",
+        "mini_locations": ["Train", "Town Square", "Department of EMUSA Affairs", "Slums", "Palace"],
         'mini_local_desc': ['dlc_dialogue/north_dakota/train.txt',
                             'dlc_dialogue/north_dakota/nd_town_square.txt',
                             'dlc_dialogue/north_dakota/nd_dea.txt',
@@ -20,8 +20,22 @@ dlc_locations = [
         "intro": 'dlc_dialogue/north_dakota/north_dakota_intro.txt',
         "item": {'item': northdakotium, 'position': 2, 'collected': False},
         "boss": {'boss_encounter': king_fight, 'position': 4, 'defeated': False},
-        "ally": skellybones_ally,
-        "encounter": {'fight': spooky_monsters_fight, 'position': 3, 'defeated': False}
+        "ally": prince_ally,
+        "encounter": {'fight': nd_encounter, 'position': 3, 'defeated': False}
+    },
+    {
+        "name": "New Rome",
+        "mini_locations": ["New Rome Sign", "Colosseum", "Senate", "Studio", "Theme Park"],
+        'mini_local_desc': ['dlc_dialogue/north_dakota/train.txt',
+                            'dlc_dialogue/north_dakota/nd_town_square.txt',
+                            'dlc_dialogue/north_dakota/nd_dea.txt',
+                            '',
+                            ''],
+        "intro": 'dlc_dialogue/new_rome/nr_intro.txt',
+        "item": {'item': film_roll, 'position': 3, 'collected': False},
+        "boss": {'boss_encounter': king_fight, 'position': 4, 'defeated': False},
+        "ally": prince_ally,
+        "encounter": {'fight': nd_encounter, 'position': 2, 'defeated': False}
     },
 ]
 
@@ -33,7 +47,7 @@ def dlc_explore(location):
     if selection == len(options) - 1:
         return False
     
-    if selection == location['item']['position'] and not location['item']['collected']:
+    if selection == location['item']['position'] and not location['item']['collected'] and location['item']['item'] not in player_data['inventory']:
         read_dialogue(location['mini_local_desc'][selection])
         input(f"You now have {location['item']['item']}!")
         player_data['inventory'].append(location['item']['item'])
@@ -49,6 +63,7 @@ def dlc_explore(location):
         if result:
             level_up(party + benched_allies, inq_select("What do you want to level up?", "Durability", "Bravery", "Strength", "Recovery"), 1)
             input(f"{location['ally'].name} has joined our party!")
+            input(f"You can access {location['ally'].name} by changing your party composition!")
             benched_allies.append(location['ally'])
             location['boss']['defeated'] = True
 
@@ -81,7 +96,7 @@ def menu(location, index):
                 case 1:
                     defeated_boss = dlc_explore(location)
                 case 2:
-                    match inq_select(f"Stats: \nDurability: {player_data['durability']} \nBravery: {player_data['bravery']} \nStrength: {player_data['strength']} \nRecovery: {player_data['recovery']} \nWhat do you want to do?", "Inspect Party Members", "Change Party Composition"):
+                    match inq_select(f"Stats: \nDurability: {player_data['durability']} \nBravery: {player_data['bravery']} \nStrength: {player_data['strength']} \nRecovery: {player_data['recovery']} \nWhat do you want to do?", "Inspect Party Members", "Change Party Composition", "Back"):
                         case 1:
                             selection = inq_select("Which ally do you want to inspect?", *party)
                             selection = party[selection-1]
@@ -99,6 +114,9 @@ def menu(location, index):
                                 benched_allies.append(ally_to_replace)
                             else:
                                 input("There are no spare allies!")
+                        
+                        case 3:
+                            continue
                 case 3:
                     for item in player_data['inventory']:
                         print(item)
@@ -118,7 +136,7 @@ def menu(location, index):
                 case 1:
                     dlc_explore(location)
                 case 2:
-                    match inq_select("What do you want to do?", "Inspect Party Members", "Change Party Composition"):
+                    match inq_select(f"Stats: \nDurability: {player_data['durability']} \nBravery: {player_data['bravery']} \nStrength: {player_data['strength']} \nRecovery: {player_data['recovery']} \nWhat do you want to do?", "Inspect Party Members", "Change Party Composition", "Back"):
                         case 1:
                             selection = inq_select("Which ally do you want to inspect?", *party)
                             selection = party[selection-1]
@@ -136,6 +154,9 @@ def menu(location, index):
                                 benched_allies.append(ally_to_replace)
                             else:
                                 input("There are no spare allies!")
+                        
+                        case 3:
+                            continue
                 case 3:
                     for item in player_data['inventory']:
                         print(item)

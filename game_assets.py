@@ -425,7 +425,7 @@ truth_ally = attack('truth', 'Disturbing Truth', "Freak your opponents out with 
                      'He feels a little embarressed.'], [3])
 
 skellybones_ally = ally('Mr. Skellybones', 70, 100, 10,
-                    [bone_blow_ally], [truth_ally], [], [])
+                    [bone_blow_ally, truth_ally], [], [], [])
 
 
 # ------------------------------------------------- Zeep Vorp (Ally) -------------------------------------------------
@@ -489,14 +489,17 @@ everyone = [test_enemy, viyh, skellybones_boss, ghost, zombie_one, zombie_two, s
 # ===========================================================================================================
 
 # ================================================= Items =================================================
-northdakotium = item("Northdakotium", 'An ingot of Northdakotium that you have no idea what to do with.', 50, 0, False, True, [], 
+northdakotium = item("Northdakotium", 'An ingot of Northdakotium that you have no idea what to do with.', 30, 0, False, True, [], 
                      ['You pull out your ingot of North Dakotium you had in your backpocket.', "You try to eat it for some reason but obviously that doesn't work.", "It's a slab of metal.",
                       "I don't know what you expected.", 'UNKNOWN: "Yo."', "Wait is that...", 'the ingot talking?!', 'PEPPER: "How do we use you, ingot?"', 'INGOT: "What do you mean use me?"',
                       'PEPPER: "I mean use you! Now give us something or else I\'m throwing you into a furnace."', 'INGOT: "Whoa, whoa, whoa! Let\'s not get violent here!"', 
                       'INGOT: "Look I don\'t know!"', 'You take the ingot and rub it sensually... for some reason.', 'Pepper and Mr. Skellybones avert their eyes.', 'But then the ingot starts glowing.',
                       'INGOT: "Whoa! What\'s happening to me-"', 'The ingot is converted into energy that heals you.'])
 
-
+film_roll = item("Film Roll", 'A film roll containing a leaked cut of the major motion picture, "Star Jones 13: Infinitely Impossible: Part 3.6"', 0, -30, True, True, [],
+                 ['You set up a film projector and a projection screen.', 'Your opponents set up the chairs and get the popcorn.', 'You, your party, and your opponents get comfortable and watch the movie.',
+                  'To put it simply,', 'it was a 3 hour disgrace to the Star Jones franchise.', 'They really should have stopped after Star Jones 3.', 'Your party came out unscaved because you all already knew it would be terrible,',
+                  'But fortunately, your opponents had their hopes high, and so they were disappointed.'])
 # ================================================= Bosses =================================================
 
 # ------------------------------------------------- Tutorial Fight -------------------------------------------------
@@ -534,7 +537,11 @@ servant = attack("servant", 'Servant Summon', '', 30, 0, True, False,
                   'KING: "Attack!"', 'The butler hesitantly nods and punches {tname} in the nose.', 'He then scurries off.'],
                  ['The king tries to yell for a butler but it seems that he has lost his voice from yelling.', 'The king drinks a cup of water.'], [])
 
-
+boogie = attack("dance", "Boogie", '', 0, 20, True, False, 
+                ["The king challenges {tname} to a dance off.", 'The king dances so incredibly well that {tname} has no hope of winning.', '{tname} forfeits.'],
+                ["The king challenges {tname} to a dance off.", "He begins but his dancing is so terrible that it made {tname} question what the point of life is."],
+                ["The king challenges {tname} to a dance off.", "The king's dancing is mediocre and {tname} winces in embarassment but it's not that bad."],
+                ["The king challenges {tname} to a dance off.", "The king's dancing is so incredly average that not a single soul gives a reaction."], []) 
 
 heal_aura_enemy = attack('heal_aura', 'Heal Aura', '', -20, 0, False, True, 
                          ['The Prince tries to twist the crystal but the crystal speaks.', 'CRYSTAL: "I got you homie."', "Although only I can hear it say that because it's another inanimate voice.",
@@ -546,9 +553,16 @@ heal_aura_enemy = attack('heal_aura', 'Heal Aura', '', -20, 0, False, True,
                          ['The Prince twists the crystal floating within the curve of his staff.', 'The clear crystal turns green.', 'He slams the bottom of his staff down but he slams it too hard.', 
                           'The crystal falls out of the staff and rolls to you.', 'PRINCE: "May I please have that back?"', 'You nod and hand it back.'], [])
 
-king = enemy("The King of North Dakota", 'Focused Damager', 120, 120, 10, [servant], [], [], [])
+calm_aura_enemy = attack("calm_aura", "Calming Aura", '', 0, -15, False, True,
+                         ['The Prince reaches into his robe pocket and pulls out a humidifier.', 'He plugs it into a nearby outlet.', 'Since he chose the best scent,', 
+                          'he and king feel way calmer.'],
+                         ['The Prince twists the crystal floating in the curve of his staff.', 'The crystal turns blue.', 'He slams the staff down and a blue aura envelopes him and the king.'],
+                         ['The Prince rotates the crystal too far to the right,', 'turning the pure blue closer to a turqouise color.', 'He slams the staff down but it is barely effective'],
+                         ['The prince panics and forgets what angle to cast the calming spell.', 'He tries to reassure himself,', 'PRINCE: "I can do this! I just need to believe!"'], [])
 
-prince_enemy = enemy("The Prince of North Dakota", 'AOE Healer', 70, 100, 10, [], [], [], [heal_aura_enemy])
+king = enemy("The King of North Dakota", 'Focused Damager', 120, 100, 10, [servant, boogie], [], [], [])
+
+prince_enemy = enemy("The Prince of North Dakota", 'AOE Healer', 50, 100, 10, [], [], [], [heal_aura_enemy, calm_aura_enemy])
 
 king_fight = encounter([king, prince_enemy], 'dlc_dialogue/north_dakota/palace.txt', 'dlc_dialogue/north_dakota/nd_boss_victory.txt')
 
@@ -556,10 +570,21 @@ king_fight = encounter([king, prince_enemy], 'dlc_dialogue/north_dakota/palace.t
 # ================================================= Encounters =================================================
 
 # ------------------------------------------------- North Dakota Encounter -------------------------------------------------
+spoon_stab = attack('spoon_stab', 'Spoon Stab', '', 40, 20, True, False,
+                    ['The mugger does 14 spins,', '6 backflips,', '7 somersaults,', 'and then stabs {tname} with the spoon.'],
+                    ['The mugger stabs {tname} with a spoon.'],
+                    ['The mugger tries to stab {tname} with a spoon but somehow misses, barely grazing him.'],
+                    ['The mugger tries to stab {tname} with a spoon but somehow turns 180 degrees and stabs the air.', 'The air winces in pain.'], [])
 
+mugger_1 = enemy('Mugger 1', 'Focused Damager', 75, 75, 5, [spoon_stab], [], [], [])
+mugger_2 = enemy('Mugger 2', 'Focused Damager', 75, 75, 5, [spoon_stab], [], [], [])
+
+nd_encounter = encounter([mugger_1, mugger_2], 'dlc_dialogue/north_dakota/nd_encounter_intro.txt', 'dlc_dialogue/north_dakota/encounter_victory.txt')
 
 # ================================================= Allies =================================================
-heal_aura_ally = attack('heal_aura', 'Heal Aura', '', -15, 0, False, True, 
+
+# ------------------------------------------------- Prince of North Dakota -------------------------------------------------
+heal_aura_ally = attack('heal_aura', 'Heal Aura', 'Heal everyone with this incredible non-FDA approved healing aura', -15, 0, False, True, 
                          ['The Prince tries to twist the crystal but the crystal speaks.', 'CRYSTAL: "I got you homie."', "Although only I can hear it say that because it's another disembodied voice.",
                            'Anyway, it turns itself into a neon green.', 'The healing aura that comes from it is blinding.'],
                          ['The Prince twists the crystal floating within the curve of his staff.', 'The clear crystal turns green.', 
@@ -569,7 +594,14 @@ heal_aura_ally = attack('heal_aura', 'Heal Aura', '', -15, 0, False, True,
                          ['The Prince twists the crystal floating within the curve of his staff.', 'The clear crystal turns green.', 'He slams the bottom of his staff down but he slams it too hard.', 
                           'The crystal falls out of the staff and rolls to you.', 'PRINCE: "May I please have that back?"', 'Your opponent nods and hands it back.'], [])
 
-prince_ally = ally("The Prince of North Dakota", 70, 100, 30, [], [], [], [heal_aura_ally])
+calm_aura_ally = attack("calm_aura", "Calming Aura", "It's basically a magic humidifier, unless it's an actual humidifier", 0, -15, False, True,
+                         ['The Prince reaches into his robe pocket and pulls out a humidifier.', 'He plugs it into a nearby outlet.', 'Since he chose the best scent,', 
+                          'you and your party.'],
+                         ['The Prince twists the crystal floating in the curve of his staff.', 'The crystal turns blue.', 'He slams the staff down and a blue aura envelopes you and your party.'],
+                         ['The Prince rotates the crystal too far to the right,', 'turning the pure blue closer to a turqouise color.', 'He slams the staff down but it is barely effective'],
+                         ['The prince panics and forgets what angle to cast the calming spell.', 'He tries to reassure himself,', 'PRINCE: "I can do this! I just need to believe!"'], [])
+
+prince_ally = ally("The Prince of North Dakota", 70, 100, 30, [], [], [], [heal_aura_ally, calm_aura_ally])
 # ------- Party -------
 party = [player, skellybones_ally, pepper]
 benched_allies = []

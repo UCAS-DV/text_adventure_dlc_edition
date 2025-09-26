@@ -39,7 +39,7 @@
 1KING: "Who are you and what do you desire?"
 1He waits on your response but Pepper steps in.
 1PEPPER: "They don't really talk all too much."
-1MR. SKELLYBONES: "We have come to inquire on your knowledge of Zeep Vorp?"
+1MR. SKELLYBONES: "We have come to inquire on your knowledge of Zeep Vorp.?"
 1The king goes pale.
 1KING: "I-I do not know of a 'Zeep Vorp'"
 1KING: "I-it's not like I gave him the North Dakotan Diamond in exchange for him quelling anti-monarchy sentiments"
