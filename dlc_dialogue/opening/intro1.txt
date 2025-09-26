@@ -1,4 +1,4 @@
--dlc_dialogue\opening\audio\intro1_audio.txt
+-dlc_dialogue/opening/audio/intro1_audio.txt
 1Once upon a time,
 1there was a nation called the Even More United States of America.
 1It spanned from the North Pole to Hell, North Dakota to New Rome.

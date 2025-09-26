@@ -1,0 +1,9 @@
+-
+1You enter the New Roman Senate building.
+1You try to enter through the front gates but two guards stop you
+1GUARD: "Visitors! State your business"
+1You pull out a pen and notepad to draw a picture of Zeep Vorp but you are interrupted
+1GUARD: "Ah, so you're here to assassinate a senator?"
+`Nod`Shake your head
+1GUARD: "Oh, alright!"
+1GUARD: "The senate chamber is to
