@@ -1,4 +1,4 @@
--dlc_dialogue\opening\audio\intro2_audio.txt
+-dlc_dialogue/opening/audio/intro2_audio.txt
 1MENTOR: "Welp. You're screwed."
 1The mentor runs away and jumps through a window.
 1ROBBER: "Uh..."

@@ -1,4 +1,4 @@
--dlc_dialogue\north_dakota\audio\north_dakota_intro_audio.txt
+-dlc_dialogue/north_dakota/audio/north_dakota_intro_audio.txt
 +dlc_audio\nd_intro\inside-old-train-169418.mp3
 1You, Mr. Skellybones, and Pepper are on a train to...
 1somewhere?

@@ -129,6 +129,8 @@ def dlc_main():
     game_title = "Quest For The Country!"
     sub_title = "Hunt for Zeep Vorp"
 
+    global allow_audio
+
     while True:
         # Display the title screen header
         print("\n" + "=" * 60)
@@ -138,7 +140,7 @@ def dlc_main():
         print("=" * 60)
         print()  # Spacing
 
-        choice = inq_select('Use the arrow keys and "Enter" to navigate the menus.', 'Play DLC', 'Load DLC', 'Exit')
+        choice = inq_select('Use the arrow keys and "Enter" to navigate the menus.', 'Play DLC', 'Load DLC', 'Settings', 'Exit')
 
         match choice:
             case 1:
@@ -153,6 +155,19 @@ def dlc_main():
 
                 menu(dlc_locations[player_data['location']], player_data['location'])
             case 3:
+                print("\033c")
+
+                match inq_select('Press enter on a setting to enable or disable it.', f'Allow Audio: {allow_audio}', 'Exit'):
+                    case 1:
+                        if allow_audio:
+                            allow_audio = False
+                        else:
+                            allow_audio = True
+
+                        input(f"Allow Audio has been set to {allow_audio}")
+                    case 2:
+                        continue
+            case 4:
                 player.name = "Unpaid Intern"
                 print("\033c")
                 break
