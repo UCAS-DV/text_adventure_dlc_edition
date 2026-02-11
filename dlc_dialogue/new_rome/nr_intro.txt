@@ -1,4 +1,4 @@
--
+-dlc_dialogue/new_rome/audio/nr_intro_audio.txt
 +dlc_audio\nd_intro\inside-old-train-169418.mp3
 1In the cabin, Mr. Skellybones fills the Prince in on the mission and the world outside of North Dakota.
 1Apparently, he's never heard of anything outside of North Dakota aside from the existence of the EMUSA.

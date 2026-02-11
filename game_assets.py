@@ -64,9 +64,11 @@ class ally:
 
         return stats
 
+def default_function():
+    return 0
 
 class attack:
-    def __init__(self, class_name, display_name, description, hp, nerves, offensive, multi, super_success, success, fail, super_fail, ability):
+    def __init__(self, class_name, display_name, description, hp, nerves, offensive, multi, super_success, success, fail, super_fail, ability, special=default_function):
         #ADD ABILITY AFTER MULTI
         self.class_name = class_name
         self.name = display_name
@@ -78,12 +80,13 @@ class attack:
         self.offensive = offensive
         self.multi = multi
 
-
         self.super_success = super_success
         self.success = success
         self.fail = fail
         self.super_fail = super_fail
         self.ability = ability
+
+        self.special = special
 
     def __str__(self):
         # Affects single enemy
@@ -135,10 +138,11 @@ class item:
             return f'{self.name}:\n    {self.i_desc}\n    HP Gained: {self.hp}\n    Nerves: {self.nerves}\n    Target: All Allies'
 
 class encounter:
-    def __init__(self, enemies, opening, closing):
+    def __init__(self, enemies, opening, closing, special_function = default_function):
         self.enemies = enemies
         self.opening = opening
         self.closing = closing
+        self.special_function = special_function
 
 all_enemies = enemy('All enemies', 'All Enemies', 0, 0, 0, [], [], [], [])
 all_allies = ally('All enemies', 0, 0, 0, [], [], [], [])
@@ -561,12 +565,35 @@ calm_aura_enemy = attack("calm_aura", "Calming Aura", '', 0, -15, False, True,
                          ['The Prince rotates the crystal too far to the right,', 'turning the pure blue closer to a turqouise color.', 'He slams the staff down but it is barely effective'],
                          ['The prince panics and forgets what angle to cast the calming spell.', 'He tries to reassure himself,', 'PRINCE: "I can do this! I just need to believe!"'], [])
 
-king = enemy("The King of North Dakota", 'Focused Damager', 120, 100, 10, [servant, boogie], [], [], [])
+king = enemy("The King of North Dakota", 'Focused Damager', 140, 100, 10, [servant, boogie], [], [], [])
 
-prince_enemy = enemy("The Prince of North Dakota", 'AOE Healer', 50, 100, 10, [], [], [], [heal_aura_enemy, calm_aura_enemy])
+prince_enemy = enemy("The Prince of North Dakota", 'AOE Healer', 70, 100, 10, [], [], [], [heal_aura_enemy, calm_aura_enemy])
 
 king_fight = encounter([king, prince_enemy], 'dlc_dialogue/north_dakota/palace.txt', 'dlc_dialogue/north_dakota/nd_boss_victory.txt')
 
+# ------------------------------------------------- NR Fight -------------------------------------------------
+
+def summon_kid():
+    input("A new child has entered the battle! (Enter to Continue)")
+    return enemy("Child", "Weak Damager", 50, 10, 0, [shin_kick], [], [], [])
+
+shin_kick = attack("kick", "Shin Kick", "", 20, 5, True, False, 
+                   ['The kid with all of their might kicks your shin.', 'It hurts a surprising amount given that the kid does not seem to be older than 10.'],
+                   ['The kid kicks your shin and it hurts.'],
+                   ["The kid kicks your shin but given that they're less than 10 years old,", "it doesn't hurt very much."],
+                   ['The kid tries to kick your shin but somehow misses completely and fall'], [])
+
+child_summon = attack("summon", "Rally", "", 0, 5, True, True, 
+                      ['SUPER-ROBO-JULIUS-CAESER: "need_assistance = true;"',  'SUPER-ROBO-JULIUS-CAESER: "print("Please");"', "Inspired by Robo-Caeser's politeness,", "A child from the crowd steps up and decides to join it in battle."],
+                      ['SUPER-ROBO-JULIUS-CAESER: "need_assistance = true;"', 'A child from the crowd steps up and decides to join Robo-Caeser in battle.'],
+                      ['SUPER-ROBO-JULIUS-CAESER: "need_assistance = true;"',  'SUPER-ROBO-JULIUS-CAESER: "print("Immediately!");"', "Hesistantly,", "A child from the crowd steps up and decides to join it in battle."],
+                      ['SUPER-ROBO-JULIUS-CAESER: "need_assistance = true;"', 'No one steps up to assist it.'],
+                      [],
+                      summon_kid)
+
+srjc_enemy = enemy("Super-Robo-Julius-Caeser", "Summoner", 130, 100, 10, [child_summon], [], [], [])
+
+srjc_fight = encounter([srjc_enemy], 'dlc_dialogue/north_dakota/nd_encounter_intro.txt', 'dlc_dialogue/north_dakota/encounter_victory.txt')
 
 # ================================================= Encounters =================================================
 
@@ -577,8 +604,8 @@ spoon_stab = attack('spoon_stab', 'Spoon Stab', '', 40, 20, True, False,
                     ['The mugger tries to stab {tname} with a spoon but somehow misses, barely grazing him.'],
                     ['The mugger tries to stab {tname} with a spoon but somehow turns 180 degrees and stabs the air.', 'The air winces in pain.'], [])
 
-mugger_1 = enemy('Mugger 1', 'Focused Damager', 75, 75, 5, [spoon_stab], [], [], [])
-mugger_2 = enemy('Mugger 2', 'Focused Damager', 75, 75, 5, [spoon_stab], [], [], [])
+mugger_1 = enemy('Mugger 1', 'Focused Damager', 85, 75, 5, [spoon_stab], [], [], [])
+mugger_2 = enemy('Mugger 2', 'Focused Damager', 85, 75, 5, [spoon_stab], [], [], [])
 
 nd_encounter = encounter([mugger_1, mugger_2], 'dlc_dialogue/north_dakota/nd_encounter_intro.txt', 'dlc_dialogue/north_dakota/encounter_victory.txt')
 

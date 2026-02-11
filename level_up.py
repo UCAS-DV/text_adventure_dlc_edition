@@ -27,8 +27,8 @@ def level_up(allies, stat, degree):
         case 3:
             for ally in allies:
                 for attack_ in ally.attacks:
-                    attack_.hp *= 1 + (.25 * degree)
-                    attack_.nerves *= 1 + (.25 * degree)
+                    attack_.hp *= 1 + (.15 * degree)
+                    attack_.nerves *= 1 + (.15 * degree)
 
                     attack_.hp = ceil(attack_.hp)
                     attack_.nerves = ceil(attack_.nerves)

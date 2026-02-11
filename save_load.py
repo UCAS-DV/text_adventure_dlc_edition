@@ -18,9 +18,9 @@ def inq_select(*args):
 SAVE_FILE = "save_file.csv"
 inventory_file = 'save_inventory.txt'
 
-dlc_items = [northdakotium]
+dlc_items = [northdakotium, film_roll]
 
-dlc_allies = [skellybones_ally, pepper]
+dlc_allies = [skellybones_ally, pepper, prince_ally]
 
 # Empty player data (waiting to be loaded)
 player_data = {
@@ -38,14 +38,14 @@ def save_dlc():
         save_string = ''
 
         # Add the indexes of the allies currently in party
-        for i in range(0,len(dlc_allies)):
+        for i in range(0,len(dlc_allies) - 1):
             if dlc_allies[i] in party:
                 save_string += str(i)
 
         save_string += '|'
 
         # Add the indexes of the allies currently on bench
-        for i in range(0,len(dlc_allies)):
+        for i in range(0,len(dlc_allies) - 1):
             if dlc_allies[i] in benched_allies:
                 save_string += str(i)
         
@@ -53,7 +53,7 @@ def save_dlc():
 
         # Add indexes of the items currently in inventory
         if player_data['inventory']:
-            for i in range(0,len(dlc_items)):
+            for i in range(0,len(dlc_items) - 1):
                 if player_data['inventory'][i] in dlc_items:
                     save_string += str(i)
 
@@ -74,6 +74,9 @@ def load_dlc():
     with open("dlc_save_file.txt", 'r', newline='') as file:
         data = file.read().split("|")
 
+        party.clear()
+        party.append(player)
+
         for ally_index in data[0]:
             if dlc_allies[int(ally_index)] not in party:
                 party.append(dlc_allies[int(ally_index)])
@@ -93,7 +96,7 @@ def load_dlc():
         player_data['strength'] = float(data[6])
         player_data['recovery'] = float(data[7])
 
-        for member in party:
+        for member in current_allies:
             member.max_hp += ceil(20 * player_data['durability'])
             member.hp = member.max_hp
 
@@ -103,8 +106,8 @@ def load_dlc():
 
             if member.attacks:
                 for attack in member.attacks:
-                    attack.hp *= (1.25**player_data['strength'])
-                    attack.nerves *= (1.25**player_data['strength'])
+                    attack.hp *= (1.15**player_data['strength'])
+                    attack.nerves *= (1.15**player_data['strength'])
 
                     attack.hp = ceil(attack.hp)
                     attack.nerves = ceil(attack.nerves)

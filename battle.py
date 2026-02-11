@@ -121,6 +121,8 @@ def attack_them(att, dealer, targets, nerves):
             dmg /= 0.75
             discomfort /= 0.75
 
+    return nerve_multiplier
+
 # Formats items so it can be used in UI
 def format(unformatted_list):
 
@@ -268,7 +270,7 @@ def use_item(item, allies, enemies):
 
 
 # Main battle function
-def battle(allies, enemies, opening, closing, inventory):
+def battle(allies, enemies, opening, closing, inventory, special_function=default_function):
     #print(allies)
     #print(enemies)
     
@@ -336,8 +338,12 @@ def battle(allies, enemies, opening, closing, inventory):
             battle_ended = True
             break
 
+        # Remove dead children safely (don't mutate while iterating)
+        enemies = [e for e in enemies if not (e.name == "Child" and e.hp == 0)]
+
         # IF player's turn
         if turn % 2 == 0:
+
             player_acted = False
             match inq_select('Which action would you like to perform?', 'Check Stats', 'Attack', 'Use Item', 'Run Away'):
 
@@ -475,6 +481,9 @@ def battle(allies, enemies, opening, closing, inventory):
         # Enemy Turn (Amber)
         else:
 
+            if special_function == game_assets.summon_kid and (turn + 1) % 2 == 0:
+                enemies.append(special_function())
+
             while True:
                 dealing_enemy = select_random(enemies)
 
@@ -502,17 +511,21 @@ def battle(allies, enemies, opening, closing, inventory):
 
                 if enemy_target.hp == enemy_target.max_hp or enemy_target.hp <= 0:
                     continue
-
-            if not attack.multi:
-                input(f'{dealing_enemy.name} is taking the turn!')
-                attack_them(attack, dealing_enemy, [enemy_target], dealing_enemy.nerves)
-            else:
-                if attack.offensive:
+            
+            if attack.special == default_function:
+                if not attack.multi:
                     input(f'{dealing_enemy.name} is taking the turn!')
-                    attack_them(attack, dealing_enemy, allies, dealing_enemy.nerves)
+                    attack_them(attack, dealing_enemy, [enemy_target], dealing_enemy.nerves)
                 else:
-                    input(f'{dealing_enemy.name} is taking the turn!')
-                    attack_them(attack, dealing_enemy, enemies, dealing_enemy.nerves)
+                    if attack.offensive:
+                        input(f'{dealing_enemy.name} is taking the turn!')
+                        attack_them(attack, dealing_enemy, allies, dealing_enemy.nerves)
+                    else:
+                        input(f'{dealing_enemy.name} is taking the turn!')
+                        attack_them(attack, dealing_enemy, enemies, dealing_enemy.nerves)
+            elif attack.special == summon_kid:
+                if attack_them(attack, dealing_enemy, allies, dealing_enemy.nerves) >= 0.5:
+                    enemies.append(attack.special())
 
             turn += 1
             effects.turn = turn

@@ -25,15 +25,15 @@ dlc_locations = [
     },
     {
         "name": "New Rome",
-        "mini_locations": ["New Rome Sign", "Colosseum", "Senate", "Studio", "Theme Park"],
-        'mini_local_desc': ['dlc_dialogue/north_dakota/train.txt',
+        "mini_locations": ["New Rome Sign", "Colosseum", "Senate", "Studio", "Dizzy Land"],
+        'mini_local_desc': ['dlc_dialogue/new_rome/sign.txt',
                             'dlc_dialogue/north_dakota/nd_town_square.txt',
-                            'dlc_dialogue/north_dakota/nd_dea.txt',
+                            '',
                             '',
                             ''],
         "intro": 'dlc_dialogue/new_rome/nr_intro.txt',
         "item": {'item': film_roll, 'position': 3, 'collected': False},
-        "boss": {'boss_encounter': king_fight, 'position': 4, 'defeated': False},
+        "boss": {'boss_encounter': srjc_fight, 'position': 4, 'defeated': False},
         "ally": prince_ally,
         "encounter": {'fight': nd_encounter, 'position': 2, 'defeated': False}
     },
@@ -57,25 +57,33 @@ def dlc_explore(location):
         return False
 
     if selection == location['boss']['position'] and not location['boss']['defeated']:
-        boss_fight = location['boss']['boss_encounter']
-        result, empty_list = battle(party, boss_fight.enemies, boss_fight.opening, boss_fight.closing, player_data['inventory'])
 
-        if result:
-            level_up(party + benched_allies, inq_select("What do you want to level up?", "Durability", "Bravery", "Strength", "Recovery"), 1)
-            input(f"{location['ally'].name} has joined our party!")
-            input(f"You can access {location['ally'].name} by changing your party composition!")
-            benched_allies.append(location['ally'])
-            location['boss']['defeated'] = True
+        if inq_select("You are entering a boss battle. Do you wish to continue?", "No", "Yes") == 2:
+            boss_fight = location['boss']['boss_encounter']
+            result, empty_list = battle(party, boss_fight.enemies, boss_fight.opening, boss_fight.closing, player_data['inventory'], boss_fight.special_function)
 
-        return result
+            if result:
+                level_up(party + benched_allies, inq_select("What do you want to level up?", "Durability", "Bravery", "Strength", "Recovery"), 1)
+                input(f"{location['ally'].name} has joined our party!")
+                input(f"You can access {location['ally'].name} by changing your party composition!")
+                benched_allies.append(location['ally'])
+                location['boss']['defeated'] = True
+
+            return result
+        else:
+            return False
 
     if selection == location['encounter']['position'] and not location['encounter']['defeated']:
-        fight = location['encounter']['fight']
-        result, empty_list = battle(party, fight.enemies, fight.opening, fight.closing, player_data['inventory'])
-        if result:
-            level_up(party + benched_allies, inq_select("What do you want to level up?", "Durability", "Bravery", "Strength", "Recovery"), 0.5)
-            location['encounter']['defeated'] = True
-        return False
+
+        if inq_select("You are entering an encounter. Do you wish to continue?", "No", "Yes") == 2:
+            fight = location['encounter']['fight']
+            result, empty_list = battle(party, fight.enemies, fight.opening, fight.closing, player_data['inventory'])
+            if result:
+                level_up(party + benched_allies, inq_select("What do you want to level up?", "Durability", "Bravery", "Strength", "Recovery"), 0.5)
+                location['encounter']['defeated'] = True
+            return False
+        else:
+            return False
     
     read_dialogue(location['mini_local_desc'][selection])
 
